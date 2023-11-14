@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdkya7xrmotag"]
+
+[ext_resource type="PackedScene" uid="uid://clngxlc58e2e2" path="res://Nodes/InputNode.tscn" id="1_spjp5"]
+
+[node name="Node" type="Node"]
+
+[node name="BaseNode" parent="." instance=ExtResource("1_spjp5")]
+position = Vector2(136, 162)

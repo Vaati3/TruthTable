@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://clngxlc58e2e2"]
+
+[ext_resource type="Script" path="res://Nodes/InputNode.gd" id="1_eq1pt"]
+[ext_resource type="PackedScene" uid="uid://cc5ocbuexeov5" path="res://Nodes/Base/BaseNode.tscn" id="1_lgwng"]
+
+[node name="InputNode" instance=ExtResource("1_lgwng")]
+script = ExtResource("1_eq1pt")
+amount = 2
+values = Array[bool]([true, true])
