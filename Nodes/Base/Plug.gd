@@ -8,7 +8,6 @@ var isInput : bool
 var node : BaseNode
 
 var isLinked : bool = false
-var isDraging : bool = false
 var linked : Plug = null
 var linkPos : Vector2
 
@@ -33,15 +32,9 @@ func _draw():
 
 func _process(delta):
 	pass
-#	if isLinked and not isPluged:
-#		if not isDraging:
-#			isLinked = false
-#		else:
-#			isDraging = false
 
 func _on_gui_input(event):
 	if event is InputEventScreenDrag:
-		isDraging = true
 		if isPluged:
 			linked.reset()
 			reset()
