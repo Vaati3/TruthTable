@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdkya7xrmotag"]
+[gd_scene load_steps=4 format=3 uid="uid://cdkya7xrmotag"]
 
 [ext_resource type="PackedScene" uid="uid://clngxlc58e2e2" path="res://Nodes/InputNode.tscn" id="1_spjp5"]
 [ext_resource type="PackedScene" uid="uid://bocn38crf0b5s" path="res://Nodes/OutputNode.tscn" id="2_sj8m2"]
+[ext_resource type="PackedScene" uid="uid://d0rxwxsmfdw4p" path="res://Nodes/Gates/AndNode.tscn" id="3_3u8t5"]
 
 [node name="Node" type="Node"]
 
@@ -12,7 +13,11 @@ color = Color(0.364706, 0.34902, 0.294118, 1)
 
 [node name="InputNode" parent="." instance=ExtResource("1_spjp5")]
 position = Vector2(259, 198)
-values = Array[bool]([true, false])
+amount = 3
+values = Array[bool]([true, true, false])
 
 [node name="OutputNode" parent="." instance=ExtResource("2_sj8m2")]
-position = Vector2(580, 201)
+position = Vector2(733, 198)
+
+[node name="AndNode" parent="." instance=ExtResource("3_3u8t5")]
+position = Vector2(490, 202)

@@ -13,4 +13,5 @@ func _ready():
 
 func updateLogic(index : int) -> bool:
 	values[index] = inputs[index].updateLink()
+	#add complete level logic
 	return false

@@ -14,13 +14,13 @@ var linkPos : Vector2
 var index : int
 var colour = Color.WHITE
 
-func getMiddle(vector : Vector2, size : Vector2) -> Vector2:
-	return Vector2(vector.x + (size.x / 2), vector.y + (size.y / 2))
+func getMiddle(vector : Vector2, size : Vector2, scale : Vector2) -> Vector2:
+	return Vector2(vector.x + (size.x * scale.x / 2), vector.y + (size.y * scale.y / 2))
 
 func init(isOutput, parentNode, i):
 	isInput = not isOutput
 	node = parentNode
-	linkPos = getMiddle(position, size * scale)
+	linkPos = getMiddle(position, size, scale)
 	index = i
 
 func _ready():
@@ -28,14 +28,14 @@ func _ready():
 
 func _draw():
 	if isLinked:
-		draw_line(getMiddle(position, size * scale), linkPos, colour, 10)
+		draw_line(getMiddle(position, size, scale), linkPos, colour, 10)
 
 func _process(delta):
 	pass
 
 func _on_gui_input(event):
 	if event is InputEventScreenDrag:
-		if isPluged:
+		if isPluged and isInput:
 			linked.reset()
 			reset()
 		if not isLinked:
@@ -66,15 +66,18 @@ func _drop_data(_pos, data):
 	if isPluged:
 		linked.reset()
 		reset()
-	
 	isPluged = true
 	linked = data.origin
-	
 	linked.isPluged = true
 	linked.linked = self
+
 	if isInput:
+		linked.isLinked = false
+		isLinked = true
+		linkPos = getMiddle(linked.global_position - global_position, linked.size, linked.scale)
 		node.updateLogic(index)
 	else:
+		linked.linkPos = getMiddle(global_position - linked.global_position, size, scale)
 		linked.node.updateLogic(linked.index)
 
 func _notification(notification_type):
@@ -104,6 +107,5 @@ func updateLink() -> bool:
 		linked.colour = Color.DARK_RED
 		color = Color.DARK_RED
 		linked.color = Color.DARK_RED
-	
 	queue_redraw()
 	return state

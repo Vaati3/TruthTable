@@ -43,10 +43,22 @@ func _process(delta):
 func updateLogic(index : int) -> bool:
 	return false
 
+func updateDrag(event):
+	position += event.relative
+	for plug in inputs:
+		if plug.isLinked:
+			plug.linkPos -= event.relative
+			plug.queue_redraw()
+	for plug in outputs:
+		if plug.isPluged:
+			plug.linked.linkPos += event.relative
+			plug.linked.queue_redraw()
+
 func _on_panel_gui_input(event):
 	if event is InputEventScreenDrag:
-		position += event.relative
+		updateDrag(event)
 
 func _on_rich_text_label_gui_input(event):
 	if event is InputEventScreenDrag:
-		position += event.relative
+		updateDrag(event)
+
