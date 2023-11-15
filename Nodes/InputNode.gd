@@ -11,5 +11,5 @@ func _ready():
 	nbOutputs = amount
 	super()
 
-func updateLogic(index : int) -> bool:
+func updateAll(index : int) -> bool:
 	return values[index]

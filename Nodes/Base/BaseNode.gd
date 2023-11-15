@@ -40,7 +40,19 @@ func _ready():
 func _process(delta):
 	pass
 
-func updateLogic(index : int) -> bool:
+func updateNode():
+	var index : int = 0
+	var isLast : bool = true
+
+	for plug in outputs:
+		if plug.isPluged:
+			plug.linked.node.updateNode()
+			index = plug.linked.index
+			isLast = true
+	if isLast:
+		updateAll(index)
+
+func updateAll(index : int) -> bool:
 	return false
 
 func updateDrag(event):
@@ -51,8 +63,9 @@ func updateDrag(event):
 			plug.queue_redraw()
 	for plug in outputs:
 		if plug.isPluged:
-			plug.linked.linkPos += event.relative
-			plug.linked.queue_redraw()
+			for link in plug.allLink:
+				link.linkPos += event.relative
+				link.queue_redraw()
 
 func _on_panel_gui_input(event):
 	if event is InputEventScreenDrag:

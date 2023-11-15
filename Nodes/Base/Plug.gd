@@ -9,6 +9,8 @@ var node : BaseNode
 
 var isLinked : bool = false
 var linked : Plug = null
+#for outputs only
+var allLink : Array[Plug] = []
 var linkPos : Vector2
 
 var index : int
@@ -27,7 +29,7 @@ func _ready():
 	pass
 
 func _draw():
-	if isLinked:
+	if isLinked and isInput:
 		draw_line(getMiddle(position, size, scale), linkPos, colour, 10)
 
 func _process(delta):
@@ -61,6 +63,7 @@ func reset():
 	isPluged = false
 	isLinked = false
 	linked = null
+	allLink.clear()
 
 func _drop_data(_pos, data):
 	if isPluged:
@@ -75,16 +78,18 @@ func _drop_data(_pos, data):
 		linked.isLinked = false
 		isLinked = true
 		linkPos = getMiddle(linked.global_position - global_position, linked.size, linked.scale)
-		node.updateLogic(index)
+		node.updateNode()
+		linked.allLink.append(self)
 	else:
+		allLink.append(linked)
 		linked.linkPos = getMiddle(global_position - linked.global_position, size, scale)
-		linked.node.updateLogic(linked.index)
+		linked.node.updateNode()
 
 func _notification(notification_type):
 	match notification_type:
 		NOTIFICATION_DRAG_END:
-			if (not is_drag_successful() and not isPluged):
-				isLinked = false
+			if (not is_drag_successful()) and (not isPluged and isLinked):
+				reset()
 				queue_redraw()
 
 func updateLink() -> bool:
@@ -93,9 +98,9 @@ func updateLink() -> bool:
 	
 	var state : bool
 	if isInput:
-		state = linked.node.updateLogic(linked.index)
+		state = linked.node.updateAll(linked.index)
 	else:
-		state = node.updateLogic(index)
+		state = node.updateAll(index)
 
 	if state:
 		colour = Color.DARK_GREEN

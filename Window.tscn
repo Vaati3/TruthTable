@@ -17,7 +17,7 @@ amount = 3
 values = Array[bool]([true, true, false])
 
 [node name="OutputNode" parent="." instance=ExtResource("2_sj8m2")]
-position = Vector2(733, 198)
+position = Vector2(940, 192)
 
 [node name="AndNode" parent="." instance=ExtResource("3_3u8t5")]
-position = Vector2(490, 202)
+position = Vector2(595, 199)

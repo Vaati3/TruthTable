@@ -11,7 +11,7 @@ func _ready():
 	nbOutputs = 0
 	super()
 
-func updateLogic(index : int) -> bool:
+func updateAll(index : int) -> bool:
 	values[index] = inputs[index].updateLink()
 	#add complete level logic
 	return false

@@ -10,6 +10,6 @@ func _ready():
 	nbOutputs = 1
 	super()
 
-func updateLogic(index : int) -> bool:
+func updateAll(index : int) -> bool:
 	state = inputs[0].updateLink() and inputs[1].updateLink()
 	return state
