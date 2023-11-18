@@ -6,4 +6,4 @@
 [node name="InputNode" instance=ExtResource("1_lgwng")]
 script = ExtResource("1_eq1pt")
 amount = 2
-values = Array[bool]([true, true])
+values = [true, true]

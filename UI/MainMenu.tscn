@@ -59,37 +59,37 @@ theme_override_constants/separation = 100
 [node name="DescriptionPanel" type="Panel" parent="MainMenu"]
 visible = false
 layout_mode = 0
-offset_left = 541.0
-offset_top = 92.0
-offset_right = 581.0
-offset_bottom = 132.0
-scale = Vector2(13.9094, 11.1075)
+offset_left = 609.0
+offset_top = 75.0
+offset_right = 1109.0
+offset_bottom = 575.0
 
 [node name="DescriptionText" type="RichTextLabel" parent="MainMenu/DescriptionPanel"]
 layout_mode = 0
-offset_left = 2.0
-offset_top = 3.0
-offset_right = 364.0
-offset_bottom = 148.0
-scale = Vector2(0.095, 0.095)
+offset_left = 20.0
+offset_top = 16.0
+offset_right = 382.0
+offset_bottom = 161.0
+scale = Vector2(1.25, 1.25)
 scroll_active = false
 
 [node name="StartButton" type="Button" parent="MainMenu/DescriptionPanel"]
 layout_mode = 0
-offset_left = 28.9732
-offset_top = 34.1211
-offset_right = 118.973
-offset_bottom = 65.1211
-scale = Vector2(0.105, 0.135)
+offset_left = 366.0
+offset_top = 440.0
+offset_right = 456.0
+offset_bottom = 471.0
+scale = Vector2(1.135, 1.165)
 text = "Start Level"
 
 [node name="GameMenu" parent="." instance=ExtResource("2_1v01p")]
 visible = false
 layout_mode = 0
-offset_left = 2.0
-offset_top = -2.0
-offset_right = 1152.0
-offset_bottom = 648.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [connection signal="pressed" from="MainMenu/PlayMenu/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MainMenu/PlayMenu/OptionButton" to="." method="_on_option_button_pressed"]

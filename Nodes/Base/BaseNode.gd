@@ -58,6 +58,7 @@ func updateDrag(event):
 		if plug.isLinked:
 			plug.linkPos -= event.relative
 			plug.queue_redraw()
+	prints(outputs.size())
 	for plug in outputs:
 		if plug.isPluged:
 			for link in plug.allLink:

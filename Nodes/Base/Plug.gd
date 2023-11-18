@@ -27,26 +27,36 @@ func init(isOutput, parentNode, i):
 
 func _ready():
 	lineColour = Color.WHITE
+	
+func _process(delta):
+	if not isPluged and isLinked:
+		linkPos = get_viewport().get_mouse_position() - global_position
+		queue_redraw()
 
 func _draw():
 	if isLinked:
 		draw_line(getMiddle(position, size, scale), linkPos, lineColour, 10)
 
-func _on_gui_input(event):
-	if event is InputEventScreenDrag:
-		if isPluged and isInput:
-			linked.reset()
-			reset()
-		if not isLinked:
-			isLinked = true
-			linkPos = position
-		linkPos += event.relative
-		queue_redraw()
+#func _on_gui_input(event):
+#	print("nik")
+#	if event is InputEventScreenDrag:
+##		if isPluged and isInput:
+##			linked.reset()
+##			reset()
+##		if not isLinked:
+#		isLinked = true
+#		linkPos = position
+#		linkPos += event.relative
+#		queue_redraw()
 
 func _get_drag_data(_pos):
 	var data = {
 		"origin" = self
 	}
+	if isPluged and isInput:
+		linked.reset()
+		reset()
+	isLinked = true
 	return data
 
 func _can_drop_data(_pos, data):
@@ -75,11 +85,13 @@ func _drop_data(_pos, data):
 		linked.isLinked = false
 		isLinked = true
 		linkPos = getMiddle(linked.global_position - global_position, linked.size, linked.scale)
-		node.updateNode()
 		linked.allLink.append(self)
+		node.updateNode()
 	else:
-		allLink.append(linked)
+		linked.isLinked = true
+		isLinked = false
 		linked.linkPos = getMiddle(global_position - linked.global_position, size, scale)
+		allLink.append(linked)
 		linked.node.updateNode()
 
 func _notification(notification_type):

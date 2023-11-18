@@ -6,37 +6,35 @@
 script = ExtResource("1_0tvqc")
 
 [node name="Panel" type="Panel" parent="."]
-offset_left = -120.0
-offset_top = -90.0
-offset_right = 120.0
-offset_bottom = 90.0
+offset_right = 240.0
+offset_bottom = 180.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = -57.0
-offset_top = -74.0
-offset_right = 60.0
-offset_bottom = -21.0
+offset_left = 63.0
+offset_top = 17.0
+offset_right = 180.0
+offset_bottom = 70.0
 grow_vertical = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 bbcode_enabled = true
 fit_content = true
 
 [node name="OutputBox" type="VBoxContainer" parent="."]
-offset_left = 71.0
-offset_top = -79.0
-offset_right = 111.0
-offset_bottom = 81.0
+offset_left = 197.0
+offset_top = 7.0
+offset_right = 237.0
+offset_bottom = 167.0
 theme_override_constants/separation = 30
 alignment = 1
 
 [node name="InputBox" type="VBoxContainer" parent="."]
-offset_left = -113.0
-offset_top = -79.0
-offset_right = -73.0
-offset_bottom = 81.0
+offset_left = 6.0
+offset_top = 9.0
+offset_right = 46.0
+offset_bottom = 169.0
 theme_override_constants/separation = 30
 alignment = 1
 

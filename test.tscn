@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ciicvl0e7tcsd"]
+
+[ext_resource type="PackedScene" uid="uid://clngxlc58e2e2" path="res://Nodes/InputNode.tscn" id="1_rjb58"]
+[ext_resource type="PackedScene" uid="uid://bocn38crf0b5s" path="res://Nodes/OutputNode.tscn" id="2_xkmgl"]
+[ext_resource type="PackedScene" uid="uid://d0rxwxsmfdw4p" path="res://Nodes/Gates/AndNode.tscn" id="3_ukg75"]
+
+[node name="Node" type="Node"]
+
+[node name="InputNode" parent="." instance=ExtResource("1_rjb58")]
+position = Vector2(216, 194)
+amount = 3
+values = [true, true, false]
+
+[node name="OutputNode" parent="." instance=ExtResource("2_xkmgl")]
+position = Vector2(940, 192)
+
+[node name="AndNode" parent="." instance=ExtResource("3_ukg75")]
+position = Vector2(595, 199)
+isNot = false

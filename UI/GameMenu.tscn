@@ -2,7 +2,11 @@
 
 [ext_resource type="Script" path="res://UI/GameMenu.gd" id="1_x4jee"]
 
-[node name="Panel" type="Panel"]
-offset_right = 1150.0
-offset_bottom = 650.0
+[node name="GameMenu" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.364706, 0.364706, 0.364706, 1)
 script = ExtResource("1_x4jee")

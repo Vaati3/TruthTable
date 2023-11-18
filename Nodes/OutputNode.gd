@@ -18,7 +18,7 @@ func loadLevel(data):
 		createConection(false, plugScene, i)
 
 func _ready():
-	type = NodeType.Input
+	type = NodeType.Output
 	price = 0
 	nbInputs = amount
 	nbOutputs = 0
