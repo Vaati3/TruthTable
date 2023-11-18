@@ -30,6 +30,7 @@ offset_top = -79.0
 offset_right = 111.0
 offset_bottom = 81.0
 theme_override_constants/separation = 30
+alignment = 1
 
 [node name="InputBox" type="VBoxContainer" parent="."]
 offset_left = -113.0
@@ -37,6 +38,7 @@ offset_top = -79.0
 offset_right = -73.0
 offset_bottom = 81.0
 theme_override_constants/separation = 30
+alignment = 1
 
 [connection signal="gui_input" from="Panel" to="." method="_on_panel_gui_input"]
 [connection signal="gui_input" from="RichTextLabel" to="." method="_on_rich_text_label_gui_input"]

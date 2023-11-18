@@ -21,3 +21,4 @@ position = Vector2(940, 192)
 
 [node name="AndNode" parent="." instance=ExtResource("3_3u8t5")]
 position = Vector2(595, 199)
+isNot = false

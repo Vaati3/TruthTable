@@ -1,0 +1,59 @@
+{
+	"levels" :[
+		{
+			"name": "Level 1: And",
+			"description": "Create And from NAnd",
+			"sprite": "path to sprite maybe truth table",
+			"unlockNode": 1,
+			"input":{
+				"amount": 2,
+				"tests":[
+					[true, true],
+					[false, true],
+					[false, false]
+				]
+			},
+			"output":{
+				"amount": 1,
+				"expected":[
+					[true],
+					[false],
+					[false]
+				]
+			},
+			"success": false,
+			"maxScore": 10
+		}, {
+			"name": "Level 2: OR",
+			"description": "Create OR",
+			"unlockNode": 3,
+			"input":{
+				"amount": 2,
+				"tests":[
+					[true, true],
+					[false, true],
+					[false, false]
+				]
+			},
+			"output":{
+				"amount": 1,
+				"expected":[
+					[true],
+					[true],
+					[false]
+				]
+			},
+			"success": false,
+			"maxScore": 10
+		}
+	],
+	"node": [
+		{"name": "Not", "value": 3, "unlocked": false},
+		{"name": "And", "value": 4, "unlocked": false},
+		{"name": "NAnd", "value": 5, "unlocked": true},
+		{"name": "Or", "value": 6, "unlocked": false},
+		{"name": "XOr", "value": 7, "unlocked": false},
+		{"name": "NOr", "value": 8, "unlocked": false}
+		
+	]
+}

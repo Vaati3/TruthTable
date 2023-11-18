@@ -1,10 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://c7n04muwj7mk2"]
 
-[ext_resource type="Script" path="res://Nodes/Base/Plug.gd" id="1_8201y"]
+[ext_resource type="Script" path="res://Nodes/Base/Plug.gd" id="1_7kic5"]
 
 [node name="Plug" type="ColorRect"]
 custom_minimum_size = Vector2(20, 20)
 size_flags_horizontal = 4
-script = ExtResource("1_8201y")
-
-[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+script = ExtResource("1_7kic5")

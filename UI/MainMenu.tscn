@@ -1,0 +1,74 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmnh3uxk6hlaj"]
+
+[ext_resource type="Script" path="res://UI/MainMenu.gd" id="1_2q6v6"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_2q6v6")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 645.0
+
+[node name="MainMenu" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 496.0
+offset_top = 99.0
+offset_right = 692.0
+offset_bottom = 537.0
+theme_override_constants/separation = 65
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="MainMenu"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Play"
+
+[node name="OptionButton" type="Button" parent="MainMenu"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="MainMenu"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Quit"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 43.0
+offset_top = 24.0
+offset_right = 500.0
+offset_bottom = 640.0
+scale = Vector2(1.10575, 0.988164)
+
+[node name="Levels" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 100
+
+[node name="DescriptionPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 542.0
+offset_top = 93.0
+offset_right = 582.0
+offset_bottom = 133.0
+scale = Vector2(13.9094, 11.1075)
+
+[node name="DescriptionText" type="RichTextLabel" parent="DescriptionPanel"]
+layout_mode = 0
+offset_left = 3.88227
+offset_top = 2.70088
+offset_right = 37.0323
+offset_bottom = 18.2209
+
+[connection signal="pressed" from="MainMenu/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MainMenu/OptionButton" to="." method="_on_option_button_pressed"]
+[connection signal="pressed" from="MainMenu/QuitButton" to="." method="_on_quit_button_pressed"]
