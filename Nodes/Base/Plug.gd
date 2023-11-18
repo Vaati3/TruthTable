@@ -14,7 +14,7 @@ var allLink : Array[Plug] = []
 var linkPos : Vector2
 
 var index : int
-var colour = Color.WHITE
+var lineColour
 
 func getMiddle(vector : Vector2, size : Vector2, scale : Vector2) -> Vector2:
 	return Vector2(vector.x + (size.x * scale.x / 2), vector.y + (size.y * scale.y / 2))
@@ -26,14 +26,11 @@ func init(isOutput, parentNode, i):
 	index = i
 
 func _ready():
-	pass
+	lineColour = Color.WHITE
 
 func _draw():
-	if isLinked and isInput:
-		draw_line(getMiddle(position, size, scale), linkPos, colour, 10)
-
-func _process(delta):
-	pass
+	if isLinked:
+		draw_line(getMiddle(position, size, scale), linkPos, lineColour, 10)
 
 func _on_gui_input(event):
 	if event is InputEventScreenDrag:
@@ -59,7 +56,7 @@ func _can_drop_data(_pos, data):
 
 func reset():
 	color = Color.WHITE
-	colour = Color.WHITE
+	lineColour = Color.WHITE
 	isPluged = false
 	isLinked = false
 	linked = null
@@ -103,13 +100,13 @@ func updateLink() -> bool:
 		state = node.updateAll(index)
 
 	if state:
-		colour = Color.DARK_GREEN
-		linked.colour = Color.DARK_GREEN
+		lineColour = Color.DARK_GREEN
+		linked.lineColour = Color.DARK_GREEN
 		color = Color.DARK_GREEN
 		linked.color = Color.DARK_GREEN
 	else:
-		colour = Color.DARK_RED
-		linked.colour = Color.DARK_RED
+		lineColour = Color.DARK_RED
+		linked.lineColour = Color.DARK_RED
 		color = Color.DARK_RED
 		linked.color = Color.DARK_RED
 	queue_redraw()

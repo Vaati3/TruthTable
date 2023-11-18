@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmnh3uxk6hlaj"]
+[gd_scene load_steps=3 format=3 uid="uid://dmnh3uxk6hlaj"]
 
 [ext_resource type="Script" path="res://UI/MainMenu.gd" id="1_2q6v6"]
+[ext_resource type="PackedScene" uid="uid://sryd043ysm2c" path="res://UI/GameMenu.tscn" id="2_1v01p"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -9,66 +10,88 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_2q6v6")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="MainMenu" type="Panel" parent="."]
 layout_mode = 0
-offset_right = 1153.0
-offset_bottom = 645.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1154.0
+offset_bottom = 646.0
 
-[node name="MainMenu" type="VBoxContainer" parent="."]
+[node name="PlayMenu" type="VBoxContainer" parent="MainMenu"]
 layout_mode = 0
-offset_left = 496.0
-offset_top = 99.0
-offset_right = 692.0
-offset_bottom = 537.0
+offset_left = 495.0
+offset_top = 98.0
+offset_right = 691.0
+offset_bottom = 536.0
 theme_override_constants/separation = 65
 alignment = 1
 
-[node name="PlayButton" type="Button" parent="MainMenu"]
+[node name="PlayButton" type="Button" parent="MainMenu/PlayMenu"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "Play"
 
-[node name="OptionButton" type="Button" parent="MainMenu"]
+[node name="OptionButton" type="Button" parent="MainMenu/PlayMenu"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "Options"
 
-[node name="QuitButton" type="Button" parent="MainMenu"]
+[node name="QuitButton" type="Button" parent="MainMenu/PlayMenu"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "Quit"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="LevelsScroll" type="ScrollContainer" parent="MainMenu"]
 visible = false
 layout_mode = 0
-offset_left = 43.0
-offset_top = 24.0
-offset_right = 500.0
-offset_bottom = 640.0
+offset_left = 42.0
+offset_top = 23.0
+offset_right = 499.0
+offset_bottom = 639.0
 scale = Vector2(1.10575, 0.988164)
 
-[node name="Levels" type="VBoxContainer" parent="ScrollContainer"]
+[node name="Levels" type="VBoxContainer" parent="MainMenu/LevelsScroll"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 100
 
-[node name="DescriptionPanel" type="Panel" parent="."]
+[node name="DescriptionPanel" type="Panel" parent="MainMenu"]
 visible = false
 layout_mode = 0
-offset_left = 542.0
-offset_top = 93.0
-offset_right = 582.0
-offset_bottom = 133.0
+offset_left = 541.0
+offset_top = 92.0
+offset_right = 581.0
+offset_bottom = 132.0
 scale = Vector2(13.9094, 11.1075)
 
-[node name="DescriptionText" type="RichTextLabel" parent="DescriptionPanel"]
+[node name="DescriptionText" type="RichTextLabel" parent="MainMenu/DescriptionPanel"]
 layout_mode = 0
-offset_left = 3.88227
-offset_top = 2.70088
-offset_right = 37.0323
-offset_bottom = 18.2209
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 364.0
+offset_bottom = 148.0
+scale = Vector2(0.095, 0.095)
+scroll_active = false
 
-[connection signal="pressed" from="MainMenu/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="MainMenu/OptionButton" to="." method="_on_option_button_pressed"]
-[connection signal="pressed" from="MainMenu/QuitButton" to="." method="_on_quit_button_pressed"]
+[node name="StartButton" type="Button" parent="MainMenu/DescriptionPanel"]
+layout_mode = 0
+offset_left = 28.9732
+offset_top = 34.1211
+offset_right = 118.973
+offset_bottom = 65.1211
+scale = Vector2(0.105, 0.135)
+text = "Start Level"
+
+[node name="GameMenu" parent="." instance=ExtResource("2_1v01p")]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = -2.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[connection signal="pressed" from="MainMenu/PlayMenu/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MainMenu/PlayMenu/OptionButton" to="." method="_on_option_button_pressed"]
+[connection signal="pressed" from="MainMenu/PlayMenu/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MainMenu/DescriptionPanel/StartButton" to="." method="_on_start_button_pressed"]

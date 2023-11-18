@@ -37,9 +37,6 @@ func _ready():
 	for j in range(nbOutputs):
 		createConection(true, plugScene, j)
 
-func _process(delta):
-	pass
-
 func updateNode():
 	var index : int = 0
 	var isLast : bool = true

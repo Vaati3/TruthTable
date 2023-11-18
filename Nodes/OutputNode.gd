@@ -1,9 +1,22 @@
 extends BaseNode
+class_name OutputNode
 
 @export var amount: int = 1
-var values: Array[bool] = [false]
+var values: Array[bool] = [false, false]
+var outputData
 
-# Called when the node enters the scene tree for the first time.
+func loadLevel(data):
+	for input in inputs:
+		input.queue_free()
+	inputs.clear()
+	
+	nbInputs = data.amount
+	outputData = data
+	
+	var plugScene = preload(("res://Nodes/Base/Plug.tscn"))
+	for i in range(nbInputs):
+		createConection(false, plugScene, i)
+
 func _ready():
 	type = NodeType.Input
 	price = 0
