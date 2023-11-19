@@ -5,6 +5,8 @@ var inputNode : InputNode = null
 var outputNode : OutputNode = null
 var levelData
 
+var nodeList : Array[BaseNode] = []
+
 func startLevel(data):
 	visible = true
 	inputNode.loadLevel(data.input)
@@ -14,18 +16,14 @@ func _ready():
 	inputNode = preload(("res://Nodes/InputNode.tscn")).instantiate()
 	outputNode = preload(("res://Nodes/OutputNode.tscn")).instantiate()
 	
-	
 	add_child(inputNode)
 	add_child(outputNode)
 	inputNode.position = Vector2(200, 300)
 	outputNode.position = Vector2(800, 300)
+
+func moveScreen(relative):
+	inputNode.position += relative
+	outputNode.position += relative
 	
-#	var inControl = Control.new()
-#	var outControl = Control.new()
-#	inControl.add_child(inputNode)
-#	outControl.add_child(outputNode)
-#	add_child(inControl)
-#	add_child(outControl)
-#
-#	inControl.position = Vector2(200, 300)
-#	outControl.position = Vector2(800, 300)
+	for node in nodeList:
+		node.position += relative

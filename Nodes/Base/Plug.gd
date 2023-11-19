@@ -30,24 +30,15 @@ func _ready():
 	
 func _process(delta):
 	if not isPluged and isLinked:
-		linkPos = get_viewport().get_mouse_position() - global_position
-		queue_redraw()
+		var newPos = get_viewport().get_mouse_position() - global_position
+		var reDraw = newPos == linkPos
+		if reDraw:
+			linkPos = newPos
+			queue_redraw()
 
 func _draw():
 	if isLinked:
 		draw_line(getMiddle(position, size, scale), linkPos, lineColour, 10)
-
-#func _on_gui_input(event):
-#	print("nik")
-#	if event is InputEventScreenDrag:
-##		if isPluged and isInput:
-##			linked.reset()
-##			reset()
-##		if not isLinked:
-#		isLinked = true
-#		linkPos = position
-#		linkPos += event.relative
-#		queue_redraw()
 
 func _get_drag_data(_pos):
 	var data = {

@@ -54,10 +54,14 @@ func _on_option_button_pressed():
 func _on_quit_button_pressed():
 	get_tree().quit()
 
+func _on_start_button_pressed():
+	$MainMenu.visible = false
+	$GameMenu.startLevel(selectedLevel)
+
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		get_tree().quit()
 
-func _on_start_button_pressed():
-	$MainMenu.visible = false
-	$GameMenu.startLevel(selectedLevel)
+func _on_gui_input(event):
+	if event is InputEventScreenDrag:
+		$GameMenu.moveScreen(event.relative)

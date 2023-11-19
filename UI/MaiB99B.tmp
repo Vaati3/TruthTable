@@ -6,8 +6,8 @@
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1151.0
-offset_bottom = 651.0
+offset_right = 40.0
+offset_bottom = 40.0
 script = ExtResource("1_2q6v6")
 
 [node name="MainMenu" type="Panel" parent="."]
@@ -91,7 +91,6 @@ anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="pressed" from="MainMenu/PlayMenu/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MainMenu/PlayMenu/OptionButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="MainMenu/PlayMenu/QuitButton" to="." method="_on_quit_button_pressed"]
