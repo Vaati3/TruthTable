@@ -30,11 +30,8 @@ func _ready():
 	
 func _process(delta):
 	if not isPluged and isLinked:
-		var newPos = get_viewport().get_mouse_position() - global_position
-		var reDraw = newPos == linkPos
-		if reDraw:
-			linkPos = newPos
-			queue_redraw()
+		linkPos = get_viewport().get_mouse_position() - global_position
+		queue_redraw()
 
 func _draw():
 	if isLinked:

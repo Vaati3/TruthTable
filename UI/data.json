@@ -48,12 +48,11 @@
 		}
 	],
 	"node": [
-		{"name": "Not", "value": 3, "unlocked": false},
-		{"name": "And", "value": 4, "unlocked": false},
-		{"name": "NAnd", "value": 5, "unlocked": true},
-		{"name": "Or", "value": 6, "unlocked": false},
-		{"name": "XOr", "value": 7, "unlocked": false},
-		{"name": "NOr", "value": 8, "unlocked": false}
-		
+		{"name": "Not", "type": 3},
+		{"name": "And", "type": 4},
+		{"name": "NAnd", "type": 5},
+		{"name": "Or", "type": 6},
+		{"name": "XOr", "type": 7},
+		{"name": "NOr", "type": 8}
 	]
 }

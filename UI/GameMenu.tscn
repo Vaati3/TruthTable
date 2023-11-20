@@ -10,3 +10,11 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.364706, 0.364706, 0.364706, 1)
 script = ExtResource("1_x4jee")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 549.0
+offset_right = 1151.0
+offset_bottom = 649.0
+theme_override_constants/separation = 100

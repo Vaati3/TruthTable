@@ -56,7 +56,7 @@ func _on_quit_button_pressed():
 
 func _on_start_button_pressed():
 	$MainMenu.visible = false
-	$GameMenu.startLevel(selectedLevel)
+	$GameMenu.startLevel(selectedLevel, data.node)
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
