@@ -39,16 +39,15 @@ func _draw():
 		draw_line(getMiddle(position, size, scale), linkPos, lineColour, 10)
 
 func reset():
+	if not isInput:
+		return
 	color = Color.WHITE
-	lineColour = Color.WHITE
 	isPluged = false
 	isLinked = false
 	if linked:
 		linked.allLink.erase(self)
 		if linked.allLink.size() == 0:
 			linked.isPluged = false
-			linked.color = Color.WHITE
-			linked.lineColour = Color.WHITE
 		linked = null
 
 func _get_drag_data(_pos):
@@ -72,31 +71,34 @@ func _drop_data(_pos, data):
 	drawLine = false
 	isPluged = true
 	linked = data.origin
+	
 	linked.isPluged = true
 	linked.linked = self
 	linked.drawLine = false
+	linked.queue_redraw()
 
 	if isInput:
 		linked.isLinked = false
 		isLinked = true
 		linkPos = getMiddle(linked.global_position - global_position, linked.size, linked.scale)
 		linked.allLink.append(self)
-		node.updateNode()
 	else:
 		linked.isLinked = true
 		isLinked = false
-		linked.linkPos = getMiddle(global_position - linked.global_position, size, scale)
 		allLink.append(linked)
-		linked.node.updateNode()
+	
+	node.updateNode()
 
 func _notification(notification_type):
 	match notification_type:
 		NOTIFICATION_DRAG_END:
 			if (not is_drag_successful()):
-				drawLine = false
-				if isInput:
-					reset()
-				queue_redraw()
+				if(drawLine):
+					drawLine = false
+					isLinked = false
+					if isInput:
+						reset()
+					queue_redraw()
 
 func updateLink() -> bool:
 	if not isPluged:
@@ -107,7 +109,11 @@ func updateLink() -> bool:
 		state = linked.node.updateAll(linked.index)
 	else:
 		state = node.updateAll(index)
+	
+	setColour(state)
+	return state
 
+func setColour(state: bool):
 	if state:
 		lineColour = Color.DARK_GREEN
 		linked.lineColour = Color.DARK_GREEN
@@ -118,5 +124,6 @@ func updateLink() -> bool:
 		linked.lineColour = Color.DARK_RED
 		color = Color.DARK_RED
 		linked.color = Color.DARK_RED
+	
 	queue_redraw()
-	return state
+	linked.queue_redraw()
