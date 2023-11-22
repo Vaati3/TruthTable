@@ -6,7 +6,7 @@ var isPlayMenu : bool = false
 var selectedLevel
 
 func readfile() -> bool:
-	var file = FileAccess.open("res://UI/data.json", FileAccess.READ)
+	var file = FileAccess.open("res://data.json", FileAccess.READ)
 	
 	var json = JSON.new()
 	var error = json.parse(file.get_as_text())
