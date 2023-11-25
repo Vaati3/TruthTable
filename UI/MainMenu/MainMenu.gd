@@ -19,7 +19,7 @@ func readfile() -> bool:
 		return false
 
 func fillLevels():
-	var btnScene = preload(("res://UI/LevelButton.tscn"))
+	var btnScene = preload(("res://UI/MainMenu/LevelButton.tscn"))
 	for level in data.levels:
 		var btn = btnScene.instantiate()
 		btn.init(self, level)

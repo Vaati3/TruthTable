@@ -15,7 +15,8 @@ func _ready():
 	super()
 
 func updateAll(index : int) -> bool:
-	state = inputs[0].updateLink() and inputs[1].updateLink()
-	if isNot:
-		state = not state
+	var a : bool = inputs[0].updateLink()
+	var b : bool = inputs[1].updateLink()
+	state = a and b
+	if isNot: state = not state
 	return state

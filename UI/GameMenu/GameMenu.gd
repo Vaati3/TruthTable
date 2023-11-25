@@ -9,7 +9,7 @@ var nodeTypes
 var nodeList : Array[BaseNode] = []
 
 func fillNodes():
-	var btnScene = preload(("res://UI/nodeButton.tscn"))
+	var btnScene = preload(("res://UI/GameMenu/nodeButton.tscn"))
 	for type in nodeTypes:
 		var btn = btnScene.instantiate()
 		btn.init(self, type)

@@ -43,9 +43,13 @@ func updateNode():
 
 	for plug in outputs:
 		if plug.isPluged:
-			plug.linked.node.updateNode()
-			index = plug.linked.index
-			isLast = true
+			if plug.isInput:
+				plug.linked.node.updateNode()
+			else:
+				for link in plug.allLink:
+					link.node.updateNode()
+			index = plug.index
+			isLast = false
 	if isLast:
 		updateAll(index)
 

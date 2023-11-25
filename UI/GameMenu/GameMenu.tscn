@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://sryd043ysm2c"]
 
-[ext_resource type="Script" path="res://UI/GameMenu.gd" id="1_x4jee"]
+[ext_resource type="Script" path="res://UI/GameMenu/GameMenu.gd" id="1_x4jee"]
 
 [node name="GameMenu" type="ColorRect"]
 anchors_preset = 15
