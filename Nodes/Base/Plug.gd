@@ -15,7 +15,7 @@ var allLink : Array[Plug] = []
 var linkPos : Vector2
 
 var index : int
-var lineColour
+var lineColour = Color.WHITE
 
 func getMiddle(vector : Vector2, size : Vector2, scale : Vector2) -> Vector2:
 	return Vector2(vector.x + (size.x * scale.x / 2), vector.y + (size.y * scale.y / 2))
@@ -116,14 +116,17 @@ func updateLink() -> bool:
 func setColour(state: bool):
 	if state:
 		lineColour = Color.DARK_GREEN
-		linked.lineColour = Color.DARK_GREEN
 		color = Color.DARK_GREEN
-		linked.color = Color.DARK_GREEN
+		if isPluged:
+			linked.lineColour = Color.DARK_GREEN
+			linked.color = Color.DARK_GREEN
 	else:
 		lineColour = Color.DARK_RED
-		linked.lineColour = Color.DARK_RED
 		color = Color.DARK_RED
-		linked.color = Color.DARK_RED
+		if isPluged:
+			linked.lineColour = Color.DARK_RED
+			linked.color = Color.DARK_RED
 	
 	queue_redraw()
-	linked.queue_redraw()
+	if isPluged:
+		linked.queue_redraw()

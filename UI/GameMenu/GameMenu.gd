@@ -25,8 +25,8 @@ func startLevel(data, nodes):
 	fillNodes()
 
 func _ready():
-	inputNode = preload(("res://Nodes/InputNode.tscn")).instantiate()
-	outputNode = preload(("res://Nodes/OutputNode.tscn")).instantiate()
+	inputNode = preload(("res://Nodes/IO/InputNode.tscn")).instantiate()
+	outputNode = preload(("res://Nodes/IO/OutputNode.tscn")).instantiate()
 	
 	add_child(inputNode)
 	add_child(outputNode)

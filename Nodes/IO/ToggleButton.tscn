@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0vt4hfd2u2af"]
+
+[ext_resource type="Script" path="res://Nodes/IO/ToggleButton.gd" id="1_x52h0"]
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(20, 20)
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_x52h0")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
