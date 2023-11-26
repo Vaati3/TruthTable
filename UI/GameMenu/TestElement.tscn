@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://db2a4o0hqb5pv"]
+
+[ext_resource type="Script" path="res://UI/GameMenu/TestElement.gd" id="1_ujegc"]
+
+[node name="TestElement" type="Control"]
+custom_minimum_size = Vector2(160, 20)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ujegc")
+
+[node name="NameTxt" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 20.0
+scale = Vector2(0.865, 0.865)
+scroll_active = false
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 68.0
+offset_right = 88.0
+offset_bottom = 20.0
+
+[node name="StateTxt" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 88.0
+offset_top = -2.0
+offset_right = 168.0
+offset_bottom = 21.0
+text = "Pending"
+fit_content = true
+scroll_active = false

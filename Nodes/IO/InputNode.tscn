@@ -5,8 +5,8 @@
 
 [node name="InputNode" instance=ExtResource("1_w5pqc")]
 script = ExtResource("2_ra3x7")
-amount = 2
-values = [true, false]
+amount = null
+values = null
 
 [node name="RichTextLabel" parent="." index="1"]
 offset_left = 11.0

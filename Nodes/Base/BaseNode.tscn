@@ -38,5 +38,11 @@ offset_bottom = 169.0
 theme_override_constants/separation = 30
 alignment = 1
 
+[node name="Button" type="Button" parent="."]
+offset_right = 30.0
+offset_bottom = 31.0
+text = "X"
+
 [connection signal="gui_input" from="Panel" to="." method="_on_panel_gui_input"]
 [connection signal="gui_input" from="RichTextLabel" to="." method="_on_rich_text_label_gui_input"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

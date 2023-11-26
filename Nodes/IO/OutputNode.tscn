@@ -5,4 +5,4 @@
 
 [node name="OutputNode" instance=ExtResource("1_kahsg")]
 script = ExtResource("2_l7jut")
-amount = 1
+amount = null

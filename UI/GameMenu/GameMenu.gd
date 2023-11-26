@@ -21,12 +21,14 @@ func startLevel(data, nodes):
 	visible = true
 	inputNode.loadLevel(data.input)
 	outputNode.loadLevel(data.output)
+	levelData = data
 	nodeTypes = nodes
 	fillNodes()
+	$VerifyPanel.initVerify(inputNode, outputNode, data)
 
 func _ready():
-	inputNode = preload(("res://Nodes/IO/InputNode.tscn")).instantiate()
-	outputNode = preload(("res://Nodes/IO/OutputNode.tscn")).instantiate()
+	inputNode = preload("res://Nodes/IO/InputNode.tscn").instantiate()
+	outputNode = preload("res://Nodes/IO/OutputNode.tscn").instantiate()
 	
 	add_child(inputNode)
 	add_child(outputNode)
@@ -45,3 +47,6 @@ func addNode(node : BaseNode):
 	nodeList.append(node)
 	
 	node.position = Vector2(400, 300)
+
+func _on_button_pressed():
+	$VerifyPanel.openAndRunTest()

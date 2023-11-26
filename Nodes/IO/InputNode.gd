@@ -35,6 +35,7 @@ func loadLevel(data):
 
 func _ready():
 	type = NodeType.Input
+	canRemove = false
 	price = 0
 	nbInputs = 0
 	nbOutputs = amount

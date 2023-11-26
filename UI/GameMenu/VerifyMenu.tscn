@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://2631s4fm5yvb"]
+
+[ext_resource type="Script" path="res://UI/GameMenu/VerifyMenu.gd" id="1_c542l"]
+
+[node name="VerifyPanel" type="Panel"]
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1151.0
+offset_bottom = 649.0
+script = ExtResource("1_c542l")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 0
+offset_left = 493.0
+offset_top = 39.0
+offset_right = 693.0
+offset_bottom = 79.0
+
+[node name="TestBox" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 369.0
+offset_top = 226.0
+offset_right = 769.0
+offset_bottom = 426.0
+theme_override_constants/separation = 0
+
+[node name="MenuButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 378.0
+offset_top = 568.0
+offset_right = 458.0
+offset_bottom = 608.0
+text = "Menu"
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 612.0
+offset_top = 564.0
+offset_right = 692.0
+offset_bottom = 604.0
+text = "Retry
+"
+
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

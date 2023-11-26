@@ -2,7 +2,7 @@ extends BaseNode
 class_name OutputNode
 
 @export var amount: int = 1
-var values: Array[bool] = [false, false]
+var values: Array[bool] = [false]
 var outputData
 
 func loadLevel(data):
@@ -20,6 +20,7 @@ func loadLevel(data):
 func _ready():
 	type = NodeType.Output
 	price = 0
+	canRemove = false
 	nbInputs = amount
 	nbOutputs = 0
 	super()
