@@ -50,3 +50,10 @@ func addNode(node : BaseNode):
 
 func _on_button_pressed():
 	$VerifyPanel.openAndRunTest()
+
+func toMainMenu():
+	var parent = get_parent()
+	
+	if parent is MainMenu:
+		visible = false
+		parent.showMainMenu()

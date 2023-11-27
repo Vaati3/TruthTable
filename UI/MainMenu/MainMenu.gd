@@ -3,6 +3,7 @@ class_name MainMenu
 
 var data
 var isPlayMenu : bool = false
+var isPlaying : bool = false
 var selectedLevel
 
 func readfile() -> bool:
@@ -36,32 +37,53 @@ func selectLevel(level):
 	$MainMenu/DescriptionPanel/DescriptionText.append_text(level.description)
 	selectedLevel = level
 
+func showMainMenu():
+	isPlaying = false
+	$MainMenu.visible = true
+
 func _on_play_button_pressed():
 	if isPlayMenu:
 		isPlayMenu = false
 		$MainMenu/LevelsScroll.visible = false
 		$MainMenu/DescriptionPanel.visible = false
-		$MainMenu/PlayMenu.visible = true
+		$MainMenu/Menu.visible = true
 	else:
 		isPlayMenu = true
-		$MainMenu/PlayMenu.visible = false
+		$MainMenu/Menu.visible = false
 		$MainMenu/LevelsScroll.visible = true
 		$MainMenu/DescriptionPanel.visible = true
 
 func _on_option_button_pressed():
-	pass # Replace with function body.
+	pass # show option menu to be added.
 
 func _on_quit_button_pressed():
 	get_tree().quit()
 
 func _on_start_button_pressed():
 	$MainMenu.visible = false
+	isPlaying = true
 	$GameMenu.startLevel(selectedLevel, data.node)
+
+func _on_button_pressed():
+	isPlayMenu = false
+	$MainMenu/LevelsScroll.visible = false
+	$MainMenu/DescriptionPanel.visible = false
+	$MainMenu/Menu.visible = true
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		get_tree().quit()
+		if isPlayMenu:
+			isPlayMenu = false
+			$MainMenu/LevelsScroll.visible = false
+			$MainMenu/DescriptionPanel.visible = false
+			$MainMenu/Menu.visible = true
+		elif isPlaying:
+			GameMenu.visible = false
+			showMainMenu()
+		else:
+			get_tree().quit()
 
 func _on_gui_input(event):
-	if event is InputEventScreenDrag:
-		$GameMenu.moveScreen(event.relative)
+	if isPlaying:
+		if event is InputEventScreenDrag:
+			$GameMenu.moveScreen(event.relative)

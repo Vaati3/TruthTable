@@ -4,7 +4,6 @@
 			"name": "Level 1: And",
 			"description": "Create And from NAnd",
 			"sprite": "path to sprite maybe truth table",
-			"unlockNode": 1,
 			"input":{
 				"amount": 2,
 				"tests":[
@@ -20,13 +19,10 @@
 					[false],
 					[false]
 				]
-			},
-			"success": false,
-			"maxScore": 10
+			}
 		}, {
 			"name": "Level 2: OR",
 			"description": "Create OR",
-			"unlockNode": 3,
 			"input":{
 				"amount": 2,
 				"tests":[
@@ -42,9 +38,7 @@
 					[true],
 					[false]
 				]
-			},
-			"success": false,
-			"maxScore": 10
+			}
 		}
 	],
 	"node": [

@@ -17,7 +17,7 @@ offset_top = 1.0
 offset_right = 1154.0
 offset_bottom = 646.0
 
-[node name="PlayMenu" type="VBoxContainer" parent="MainMenu"]
+[node name="Menu" type="VBoxContainer" parent="MainMenu"]
 layout_mode = 0
 offset_left = 495.0
 offset_top = 98.0
@@ -26,17 +26,17 @@ offset_bottom = 536.0
 theme_override_constants/separation = 65
 alignment = 1
 
-[node name="PlayButton" type="Button" parent="MainMenu/PlayMenu"]
+[node name="PlayButton" type="Button" parent="MainMenu/Menu"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "Play"
 
-[node name="OptionButton" type="Button" parent="MainMenu/PlayMenu"]
+[node name="OptionButton" type="Button" parent="MainMenu/Menu"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "Options"
 
-[node name="QuitButton" type="Button" parent="MainMenu/PlayMenu"]
+[node name="QuitButton" type="Button" parent="MainMenu/Menu"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "Quit"
@@ -82,6 +82,14 @@ offset_bottom = 471.0
 scale = Vector2(1.135, 1.165)
 text = "Start Level"
 
+[node name="Button" type="Button" parent="MainMenu/DescriptionPanel"]
+layout_mode = 0
+offset_left = -589.0
+offset_top = 518.0
+offset_right = -466.0
+offset_bottom = 555.0
+text = "Back"
+
 [node name="GameMenu" parent="." instance=ExtResource("2_1v01p")]
 visible = false
 layout_mode = 0
@@ -92,7 +100,8 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
-[connection signal="pressed" from="MainMenu/PlayMenu/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="MainMenu/PlayMenu/OptionButton" to="." method="_on_option_button_pressed"]
-[connection signal="pressed" from="MainMenu/PlayMenu/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MainMenu/Menu/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MainMenu/Menu/OptionButton" to="." method="_on_option_button_pressed"]
+[connection signal="pressed" from="MainMenu/Menu/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="MainMenu/DescriptionPanel/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MainMenu/DescriptionPanel/Button" to="." method="_on_button_pressed"]
