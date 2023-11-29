@@ -23,7 +23,7 @@ func getMiddle(vector : Vector2, size : Vector2, scale : Vector2) -> Vector2:
 func init(isOutput, parentNode, i):
 	isInput = not isOutput
 	node = parentNode
-	linkPos = getMiddle(position, size, scale)
+	linkPos = getMiddle(Vector2(0, 0), size, scale)
 	index = i
 
 func _ready():
@@ -36,7 +36,8 @@ func _process(delta):
 
 func _draw():
 	if isLinked:
-		draw_line(getMiddle(position, size, scale), linkPos, lineColour, 10)
+		print(scale)
+		draw_line(getMiddle(Vector2(0, 0), size, scale), linkPos, lineColour, 10)
 
 func reset():
 	if not isInput:

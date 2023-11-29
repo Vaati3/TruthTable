@@ -1,6 +1,7 @@
 {
 	"levels" :[
 		{
+			"id": 1,
 			"name": "Level 1: And",
 			"description": "Create And from NAnd",
 			"sprite": "path to sprite maybe truth table",
@@ -19,8 +20,10 @@
 					[false],
 					[false]
 				]
-			}
+			},
+			"nodeAvailable": [true, false, true]
 		}, {
+			"id": 2,
 			"name": "Level 2: OR",
 			"description": "Create OR",
 			"input":{
@@ -38,7 +41,8 @@
 					[true],
 					[false]
 				]
-			}
+			},
+			"nodeAvailable": [true, true, true]
 		}
 	],
 	"node": [

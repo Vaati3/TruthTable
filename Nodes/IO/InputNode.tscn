@@ -5,8 +5,8 @@
 
 [node name="InputNode" instance=ExtResource("1_w5pqc")]
 script = ExtResource("2_ra3x7")
-amount = null
-values = null
+amount = 2
+values = [true, false]
 
 [node name="RichTextLabel" parent="." index="1"]
 offset_left = 11.0
@@ -14,10 +14,10 @@ offset_top = 59.0
 offset_right = 128.0
 offset_bottom = 112.0
 
-[node name="ToggleBox" type="VBoxContainer" parent="." index="4"]
+[node name="ToggleBox" type="VBoxContainer" parent="." index="3"]
 offset_left = 153.0
-offset_top = 6.0
+offset_top = 8.0
 offset_right = 197.0
-offset_bottom = 166.0
+offset_bottom = 168.0
 theme_override_constants/separation = 30
 alignment = 1

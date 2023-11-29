@@ -8,22 +8,34 @@ var levelData
 var nodeTypes
 var nodeList : Array[BaseNode] = []
 
-func fillNodes():
+#maybe add save system
+func clearGame():
+	for node in nodeList:
+		node.queue_free()
+	nodeList.clear()
+	
+	for child in $HBoxContainer.get_children():
+		child.queue_free()
+
+func fillNodesBtn():
 	var btnScene = preload(("res://UI/GameMenu/nodeButton.tscn"))
-	for type in nodeTypes:
-		var btn = btnScene.instantiate()
-		btn.init(self, type)
-		var control = Control.new()
-		control.add_child(btn)
-		$HBoxContainer.add_child(control)
+	for i in range(levelData.nodeAvailable.size()):
+		if levelData.nodeAvailable[i]:
+			var btn = btnScene.instantiate()
+			btn.init(self, nodeTypes[i])
+			var control = Control.new()
+			control.add_child(btn)
+			$HBoxContainer.add_child(control)
 
 func startLevel(data, nodes):
+	clearGame()
 	visible = true
+	toggleVisible(true)
 	inputNode.loadLevel(data.input)
 	outputNode.loadLevel(data.output)
 	levelData = data
 	nodeTypes = nodes
-	fillNodes()
+	fillNodesBtn()
 	$VerifyPanel.initVerify(inputNode, outputNode, data)
 
 func _ready():
@@ -48,7 +60,16 @@ func addNode(node : BaseNode):
 	
 	node.position = Vector2(400, 300)
 
+func toggleVisible(isVisible:bool):
+	$HBoxContainer.visible = isVisible
+	$Button.visible = isVisible
+	inputNode.visible = isVisible
+	outputNode.visible = isVisible
+	for node in nodeList:
+		node.visible = isVisible
+
 func _on_button_pressed():
+	toggleVisible(false)
 	$VerifyPanel.openAndRunTest()
 
 func toMainMenu():

@@ -17,18 +17,23 @@ var nbOutputs : int = 0
 var inputs : Array[Plug] = []
 var outputs : Array[Plug] = []
 
+var inputPlugOrigin : Vector2 = Vector2(20, 30)
+var outputPlugOrigin : Vector2 = Vector2(200, 30)
+var plugOffset : int = 40
+
 var canRemove : bool = true
 
 func createConection(isOutput: bool, plugScene, i):
 	var plug = plugScene.instantiate()
 	plug.init(isOutput, self, i)
-	var control = Control.new()
-	control.add_child(plug)
+	add_child(plug)
 	if isOutput:
-		$OutputBox.add_child(control)
+		plug.position.x = outputPlugOrigin.x
+		plug.position.y = outputPlugOrigin.y + (plugOffset * i)
 		outputs.append(plug)
 	else:
-		$InputBox.add_child(control)
+		plug.position.x = inputPlugOrigin.x
+		plug.position.y = inputPlugOrigin.y + (plugOffset * i)
 		inputs.append(plug)
 
 func _ready():

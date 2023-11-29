@@ -4,19 +4,24 @@ class_name InputNode
 @export var amount: int = 2
 @export var values: Array = [true, false]
 
+var btnList = []
+var toggleBtnOffset: int = 45
+
 func createToggleBtn(i:int, btnScene):
 	var btn = btnScene.instantiate()
 	btn.init(self, i, values[i])
-	var control = Control.new()
-	control.add_child(btn)
-	$ToggleBox.add_child(control)
+	add_child(btn)
+	btnList.append(btn)
+	btn.position.x = outputPlugOrigin.x - toggleBtnOffset
+	btn.position.y = outputPlugOrigin.y + (plugOffset * i)
 
 func loadLevel(data):
 	for output in outputs:
 		output.queue_free()
 	outputs.clear()
-	for child in $ToggleBox.get_children():
-		child.queue_free()
+	for btn in btnList:
+		btn.queue_free()
+	btnList.clear()
 
 	nbOutputs = data.amount
 	values = data.tests[1]

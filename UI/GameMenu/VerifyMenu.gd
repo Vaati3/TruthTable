@@ -49,6 +49,9 @@ func openAndRunTest():
 
 func _on_back_button_pressed():
 	visible = false
+	var parent = get_parent()
+	if parent is GameMenu:
+		parent.toggleVisible(true)
 
 func _on_menu_button_pressed():
 	var parent = get_parent()
