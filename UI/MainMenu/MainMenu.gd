@@ -67,6 +67,12 @@ func _ready():
 func selectLevel(level):
 	$MainMenu/DescriptionPanel/DescriptionText.clear()
 	$MainMenu/DescriptionPanel/DescriptionText.append_text(level.description)
+	$MainMenu/DescriptionPanel/ScoreText.clear()
+	$MainMenu/DescriptionPanel/ScoreText.append_text("Can be done using only " + str(level.minScore) + " NAnd gates\n")
+	if saveData.scoreList[level.id] > 0:
+		$MainMenu/DescriptionPanel/ScoreText.append_text("Your best solution used " + str(saveData.scoreList[level.id]) + " NAnd gates")
+	else:
+		$MainMenu/DescriptionPanel/ScoreText.append_text("You have yet to complete this level")
 	selectedLevel = level
 
 func updateScore(nodeList : Array[BaseNode]):

@@ -73,6 +73,13 @@ offset_bottom = 161.0
 scale = Vector2(1.25, 1.25)
 scroll_active = false
 
+[node name="ScoreText" type="RichTextLabel" parent="MainMenu/DescriptionPanel"]
+offset_left = 26.0
+offset_top = 389.0
+offset_right = 347.0
+offset_bottom = 473.0
+scroll_active = false
+
 [node name="StartButton" type="Button" parent="MainMenu/DescriptionPanel"]
 layout_mode = 0
 offset_left = 366.0

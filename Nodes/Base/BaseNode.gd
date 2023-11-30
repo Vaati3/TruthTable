@@ -4,7 +4,8 @@ class_name BaseNode
 enum NodeType {
 	Base, Input, Output,
 	NAnd, Not, And,
-	Or, NOr, XOr, XNOr
+	Or, NOr, XOr, XNOr,
+	Mux, DeMux
 }
 
 var type : NodeType = NodeType.Base
