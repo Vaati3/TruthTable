@@ -2,10 +2,9 @@ extends Node2D
 class_name BaseNode
 
 enum NodeType {
-	Base,
-	Input, Output,
-	Not,
-	And, NAnd,
+	Base, Input, Output,
+	NAnd,
+	Not, And,
 	Or, XOr, NOr
 }
 

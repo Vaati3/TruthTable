@@ -5,7 +5,6 @@ var inputNode : InputNode = null
 var outputNode : OutputNode = null
 var levelData
 
-var nodeTypes
 var nodeList : Array[BaseNode] = []
 
 #maybe add save system
@@ -22,19 +21,18 @@ func fillNodesBtn():
 	for i in range(levelData.nodeAvailable.size()):
 		if levelData.nodeAvailable[i]:
 			var btn = btnScene.instantiate()
-			btn.init(self, nodeTypes[i])
+			btn.init(self, BaseNode.NodeType.keys()[i+3], BaseNode.NodeType.values()[i+3])
 			var control = Control.new()
 			control.add_child(btn)
 			$HBoxContainer.add_child(control)
 
-func startLevel(data, nodes):
+func startLevel(data):
 	clearGame()
 	visible = true
 	toggleVisible(true)
 	inputNode.loadLevel(data.input)
 	outputNode.loadLevel(data.output)
 	levelData = data
-	nodeTypes = nodes
 	fillNodesBtn()
 	$VerifyPanel.initVerify(inputNode, outputNode, data)
 
@@ -67,10 +65,15 @@ func toggleVisible(isVisible:bool):
 	outputNode.visible = isVisible
 	for node in nodeList:
 		node.visible = isVisible
-
 func _on_button_pressed():
 	toggleVisible(false)
 	$VerifyPanel.openAndRunTest()
+
+func updateScore():
+	var parent = get_parent()
+	
+	if parent is MainMenu:
+		parent.updateScore(nodeList)
 
 func toMainMenu():
 	var parent = get_parent()

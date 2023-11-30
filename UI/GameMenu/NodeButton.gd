@@ -5,11 +5,11 @@ var nodeType : BaseNode.NodeType
 
 var parentGui
 
-func init(gui, data):
+func init(gui, name, type):
 	parentGui = gui
 	
-	nodeName = data.name
-	nodeType = data.type
+	nodeName = name
+	nodeType = type
 	text = BaseNode.NodeType.keys()[nodeType]
 
 

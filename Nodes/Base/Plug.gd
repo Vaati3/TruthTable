@@ -36,7 +36,6 @@ func _process(delta):
 
 func _draw():
 	if isLinked:
-		print(scale)
 		draw_line(getMiddle(Vector2(0, 0), size, scale), linkPos, lineColour, 10)
 
 func reset():

@@ -43,7 +43,9 @@ func openAndRunTest():
 			score += 1
 	
 	if (score == tests.size()):
-		pass#validate level and unlock levels
+		var parent = get_parent()
+		if parent is GameMenu:
+			parent.updateScore()
 	inputNode.values = save
 	inputNode.updateNode()
 
