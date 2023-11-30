@@ -1,15 +1,14 @@
 extends BaseNode
-class_name AndNode
+class_name XOrNode
 
 var state : bool = false
 @export var isNot : bool = false
 
 func _ready():
 	if isNot:
-		type = NodeType.NAnd
+		type = NodeType.NOr
 	else:
-		type = NodeType.And
-	price = 2
+		type = NodeType.Or
 	nbInputs = 2
 	nbOutputs = 1
 	super()
@@ -17,6 +16,6 @@ func _ready():
 func updateAll(index : int) -> bool:
 	var a : bool = inputs[0].updateLink()
 	var b : bool = inputs[1].updateLink()
-	state = a and b
+	state = (a or b) and not (a and b)
 	if isNot: state = not state
 	return state

@@ -3,13 +3,11 @@ class_name BaseNode
 
 enum NodeType {
 	Base, Input, Output,
-	NAnd,
-	Not, And,
-	Or, XOr, NOr
+	NAnd, Not, And,
+	Or, NOr, XOr, XNOr
 }
 
 var type : NodeType = NodeType.Base
-var price : int = 0
 
 var nbInputs : int = 0
 var nbOutputs : int = 0

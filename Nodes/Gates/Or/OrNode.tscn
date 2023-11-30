@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bifp4mrc7yqca"]
+
+[ext_resource type="PackedScene" uid="uid://cc5ocbuexeov5" path="res://Nodes/Base/BaseNode.tscn" id="1_0ncmo"]
+[ext_resource type="Script" path="res://Nodes/Gates/Or/OrNode.gd" id="2_3nbnd"]
+
+[node name="OrNode" instance=ExtResource("1_0ncmo")]
+script = ExtResource("2_3nbnd")
+isNot = false

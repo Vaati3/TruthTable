@@ -7,8 +7,8 @@ var isPlaying : bool = false
 var selectedLevel
 
 var saveData = {
-	"unlockedLevels": [true, false, false],
-	"scoreList": [0, 0, 0]
+	"unlockedLevels": [],
+	"scoreList": []
 }
 
 func save():
@@ -19,11 +19,15 @@ func save():
 
 func loadSave():
 	if not FileAccess.file_exists("user://save.save"):
+		for i in range(data.levels.size()):
+			saveData.unlockedLevels.append(false)
+			saveData.scoreList.append(0)
+		saveData.unlockedLevels[0] = true
 		return
+	
 	var saveFile = FileAccess.open("user://save.save", FileAccess.READ)
 	var json = JSON.new()
 	var error = json.parse(saveFile.get_as_text())
-	
 	if error == OK:
 		saveData.unlockedLevels = json.data.unlockedLevels
 		saveData.scoreList = json.data.scoreList

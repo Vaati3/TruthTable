@@ -15,11 +15,15 @@ func init(gui, name, type):
 
 func _on_pressed():
 	match nodeType:
-		BaseNode.NodeType.And:
-			var node = preload(("res://Nodes/Gates/AndNode.tscn")).instantiate()
-			node.isNot = false
+		BaseNode.NodeType.And, BaseNode.NodeType.NAnd:
+			var node = preload(("res://Nodes/Gates/And/AndNode.tscn")).instantiate()
+			if nodeType == BaseNode.NodeType.NAnd: node.isNot = true
 			parentGui.addNode(node)
-		BaseNode.NodeType.NAnd:
-			var node = preload(("res://Nodes/Gates/AndNode.tscn")).instantiate()
-			node.isNot = true
+		BaseNode.NodeType.Or, BaseNode.NodeType.NOr:
+			var node = preload(("res://Nodes/Gates/Or/OrNode.tscn")).instantiate()
+			if nodeType == BaseNode.NodeType.NOr: node.isNot = true
+			parentGui.addNode(node)
+		BaseNode.NodeType.XOr, BaseNode.NodeType.XNOr:
+			var node = preload(("res://Nodes/Gates/Or/XOrNode.tscn")).instantiate()
+			if nodeType == BaseNode.NodeType.XNOr: node.isNot = true
 			parentGui.addNode(node)

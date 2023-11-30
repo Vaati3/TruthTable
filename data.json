@@ -20,7 +20,7 @@
 					[true]
 				]
 			},
-			"nodeAvailable": [true, false, false]
+			"nodeAvailable": [true]
 		}, {
 			"id": 1,
 			"name": "Level 2: And",
@@ -44,11 +44,11 @@
 					[false]
 				]
 			},
-			"nodeAvailable": [true, true, false]
+			"nodeAvailable": [true, true]
 		}, {
 			"id": 2,
-			"name": "Level 3: OR",
-			"description": "Create OR",
+			"name": "Level 3: Or",
+			"description": "Create Or",
 			"minScore": 4,
 			"input":{
 				"amount": 2,
@@ -69,6 +69,79 @@
 				]
 			},
 			"nodeAvailable": [true, true, true]
+		}, {
+			"id": 3,
+			"name": "Level 4: NOr",
+			"description": "Create NOr",
+			"minScore": 4,
+			"input":{
+				"amount": 2,
+				"tests":[
+					[true, true],
+					[false, true],
+					[true, false],
+					[false, false]
+				]
+			},
+			"output":{
+				"amount": 1,
+				"results":[
+					[false],
+					[false],
+					[false],
+					[true]
+				]
+			},
+			"nodeAvailable": [true, true, true, true]
+		}, {
+			"id": 4,
+			"name": "Level 5: XOr",
+			"description": "Create XOr",
+			"minScore": 4,
+			"input":{
+				"amount": 2,
+				"tests":[
+					[true, true],
+					[false, true],
+					[true, false],
+					[false, false]
+				]
+			},
+			"output":{
+				"amount": 1,
+				"results":[
+					[false],
+					[true],
+					[true],
+					[false]
+				]
+			},
+			"nodeAvailable": [true, true, true, true, true]
+		},
+		{
+			"id": 5,
+			"name": "Level 6: NXOr",
+			"description": "Create NXOr",
+			"minScore": 4,
+			"input":{
+				"amount": 2,
+				"tests":[
+					[true, true],
+					[false, true],
+					[true, false],
+					[false, false]
+				]
+			},
+			"output":{
+				"amount": 1,
+				"results":[
+					[true],
+					[false],
+					[false],
+					[true]
+				]
+			},
+			"nodeAvailable": [true, true, true, true, true, true]
 		}
 	]
 }
