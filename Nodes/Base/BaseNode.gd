@@ -16,7 +16,7 @@ var inputs : Array[Plug] = []
 var outputs : Array[Plug] = []
 
 var inputPlugOrigin : Vector2 = Vector2(20, 30)
-var outputPlugOrigin : Vector2 = Vector2(200, 30)
+var outputPlugOrigin : Vector2 = Vector2(20, 140)
 var plugOffset : int = 40
 
 var canRemove : bool = true
@@ -26,12 +26,12 @@ func createConection(isOutput: bool, plugScene, i):
 	plug.init(isOutput, self, i)
 	add_child(plug)
 	if isOutput:
-		plug.position.x = outputPlugOrigin.x
-		plug.position.y = outputPlugOrigin.y + (plugOffset * i)
+		plug.position.x = outputPlugOrigin.x + (plugOffset * i)
+		plug.position.y = outputPlugOrigin.y 
 		outputs.append(plug)
 	else:
-		plug.position.x = inputPlugOrigin.x
-		plug.position.y = inputPlugOrigin.y + (plugOffset * i)
+		plug.position.x = inputPlugOrigin.x + (plugOffset * i)
+		plug.position.y = inputPlugOrigin.y
 		inputs.append(plug)
 
 func _ready():

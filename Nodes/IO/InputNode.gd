@@ -12,8 +12,8 @@ func createToggleBtn(i:int, btnScene):
 	btn.init(self, i, values[i])
 	add_child(btn)
 	btnList.append(btn)
-	btn.position.x = outputPlugOrigin.x - toggleBtnOffset
-	btn.position.y = outputPlugOrigin.y + (plugOffset * i)
+	btn.position.x = outputPlugOrigin.x + (plugOffset * i)
+	btn.position.y = outputPlugOrigin.y - toggleBtnOffset
 
 func loadLevel(data):
 	for output in outputs:

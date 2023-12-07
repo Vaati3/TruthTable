@@ -42,8 +42,8 @@ func _ready():
 	
 	add_child(inputNode)
 	add_child(outputNode)
-	inputNode.position = Vector2(200, 300)
-	outputNode.position = Vector2(800, 300)
+	inputNode.position = Vector2(300, 100)
+	outputNode.position = Vector2(300, 800)
 
 func moveScreen(relative):
 	inputNode.position += relative
