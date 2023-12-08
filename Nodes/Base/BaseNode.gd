@@ -15,9 +15,9 @@ var nbOutputs : int = 0
 var inputs : Array[Plug] = []
 var outputs : Array[Plug] = []
 
-var inputPlugOrigin : Vector2 = Vector2(20, 30)
-var outputPlugOrigin : Vector2 = Vector2(20, 140)
-var plugOffset : int = 40
+var inputPlugOrigin : Vector2 = Vector2(20, -20)
+var outputPlugOrigin : Vector2 = Vector2(20, 180)
+var plugOffset : int = 50
 
 var canRemove : bool = true
 
@@ -80,6 +80,10 @@ func _on_panel_gui_input(event):
 		updateDrag(event)
 
 func _on_rich_text_label_gui_input(event):
+	if event is InputEventScreenDrag:
+		updateDrag(event)
+
+func _on_texture_rect_gui_input(event):
 	if event is InputEventScreenDrag:
 		updateDrag(event)
 

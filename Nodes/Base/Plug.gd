@@ -1,4 +1,4 @@
-extends ColorRect
+extends Panel
 class_name Plug
 
 var isPluged : bool = false
@@ -16,6 +16,9 @@ var linkPos : Vector2
 
 var index : int
 var lineColour = Color.WHITE
+var box
+var greenBox
+var redBox
 
 func getMiddle(vector : Vector2, size : Vector2, scale : Vector2) -> Vector2:
 	return Vector2(vector.x + (size.x * scale.x / 2), vector.y + (size.y * scale.y / 2))
@@ -28,7 +31,12 @@ func init(isOutput, parentNode, i):
 
 func _ready():
 	lineColour = Color.WHITE
-	
+	box = get_theme_stylebox("panel").duplicate()
+	greenBox = get_theme_stylebox("panel").duplicate()
+	greenBox.bg_color = Color.DARK_GREEN
+	redBox = get_theme_stylebox("panel").duplicate()
+	redBox.bg_color = Color.DARK_RED
+
 func _process(delta):
 	if drawLine:
 		linkPos = get_viewport().get_mouse_position() - global_position
@@ -41,7 +49,8 @@ func _draw():
 func reset():
 	if not isInput:
 		return
-	color = Color.WHITE
+	var box = StyleBoxFlat.new()
+	add_theme_stylebox_override("panel", box)
 	isPluged = false
 	isLinked = false
 	if linked:
@@ -116,16 +125,16 @@ func updateLink() -> bool:
 func setColour(state: bool):
 	if state:
 		lineColour = Color.DARK_GREEN
-		color = Color.DARK_GREEN
+		add_theme_stylebox_override("panel", greenBox)
 		if isPluged:
 			linked.lineColour = Color.DARK_GREEN
-			linked.color = Color.DARK_GREEN
+			linked.add_theme_stylebox_override("panel", greenBox)
 	else:
 		lineColour = Color.DARK_RED
-		color = Color.DARK_RED
+		add_theme_stylebox_override("panel", redBox)
 		if isPluged:
 			linked.lineColour = Color.DARK_RED
-			linked.color = Color.DARK_RED
+			linked.add_theme_stylebox_override("panel", redBox)
 	
 	queue_redraw()
 	if isPluged:

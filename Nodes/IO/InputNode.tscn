@@ -9,10 +9,10 @@ amount = 2
 values = [true, false]
 
 [node name="RichTextLabel" parent="." index="1"]
-offset_left = 11.0
-offset_top = 59.0
-offset_right = 128.0
-offset_bottom = 112.0
+offset_left = 71.0
+offset_top = 71.0
+offset_right = 142.0
+offset_bottom = 124.0
 
 [node name="ToggleBox" type="VBoxContainer" parent="." index="3"]
 offset_left = 153.0
@@ -21,3 +21,9 @@ offset_right = 197.0
 offset_bottom = 168.0
 theme_override_constants/separation = 30
 alignment = 1
+
+[node name="TextureRect" parent="." index="4"]
+offset_left = 68.0
+offset_top = 61.0
+offset_right = 143.0
+offset_bottom = 136.0

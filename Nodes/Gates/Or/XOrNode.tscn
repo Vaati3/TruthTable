@@ -1,8 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://ducnv6wupd67p"]
+[gd_scene load_steps=4 format=3 uid="uid://ducnv6wupd67p"]
 
 [ext_resource type="PackedScene" uid="uid://cc5ocbuexeov5" path="res://Nodes/Base/BaseNode.tscn" id="1_10l0q"]
 [ext_resource type="Script" path="res://Nodes/Gates/Or/XOrNode.gd" id="2_ijdua"]
+[ext_resource type="Texture2D" uid="uid://dbf5regod34s3" path="res://Nodes/Gates/Or/xor.png" id="3_g0qeo"]
 
 [node name="XOrNode" instance=ExtResource("1_10l0q")]
 script = ExtResource("2_ijdua")
 isNot = false
+
+[node name="TextureRect" parent="." index="3"]
+offset_left = 71.0
+offset_top = 69.0
+offset_right = 169.0
+offset_bottom = 156.0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_g0qeo")

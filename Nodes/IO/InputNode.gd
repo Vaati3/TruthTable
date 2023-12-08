@@ -31,12 +31,7 @@ func loadLevel(data):
 	for i in range(nbOutputs):
 		createConection(true, plugScene, i)
 		createToggleBtn(i, btnScene)
-		if values[i]:
-			outputs[i].color = Color.DARK_GREEN
-			outputs[i].lineColour = Color.DARK_GREEN
-		else:
-			outputs[i].color = Color.DARK_RED
-			outputs[i].lineColour = Color.DARK_RED
+		outputs[i].setColour(values[i])
 
 func _ready():
 	type = NodeType.Input
