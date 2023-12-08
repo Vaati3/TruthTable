@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmnh3uxk6hlaj"]
+[gd_scene load_steps=8 format=3 uid="uid://dmnh3uxk6hlaj"]
 
 [ext_resource type="Script" path="res://UI/MainMenu/MainMenu.gd" id="1_2q6v6"]
 [ext_resource type="PackedScene" uid="uid://sryd043ysm2c" path="res://UI/GameMenu/GameMenu.tscn" id="2_1v01p"]
+[ext_resource type="Texture2D" uid="uid://cesgnjnyuwhbr" path="res://Nodes/Gates/And/nandIcon.png" id="2_mu6m2"]
+[ext_resource type="Theme" uid="uid://80hoaimwssja" path="res://UI/Themes/RightCornerButton.tres" id="3_5axtw"]
+[ext_resource type="Theme" uid="uid://b7hm4jkruajuu" path="res://UI/Themes/LeftCornerButton.tres" id="3_iedrr"]
+[ext_resource type="Texture2D" uid="uid://c50uu6wy88ik2" path="res://UI/Icons/back.svg" id="4_hsfuk"]
+[ext_resource type="Texture2D" uid="uid://6jg3dywoqtid" path="res://UI/Icons/check.svg" id="5_cjfp2"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -16,6 +21,32 @@ offset_left = 1.0
 offset_top = 1.0
 offset_right = 721.0
 offset_bottom = 1281.0
+
+[node name="Title" type="Control" parent="MainMenu"]
+anchors_preset = 0
+offset_right = 724.0
+offset_bottom = 624.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu/Title"]
+layout_mode = 2
+offset_left = -1.0
+offset_top = 67.0
+offset_right = 721.0
+offset_bottom = 267.0
+theme_override_font_sizes/normal_font_size = 66
+bbcode_enabled = true
+text = "[center]Truth[/center]
+[center]Table[/center]"
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu/Title"]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 301.0
+offset_right = 324.0
+offset_bottom = 387.0
+scale = Vector2(2.89, 2.89)
+texture = ExtResource("2_mu6m2")
+stretch_mode = 2
 
 [node name="Menu" type="VBoxContainer" parent="MainMenu"]
 layout_mode = 0
@@ -87,20 +118,40 @@ scroll_active = false
 
 [node name="StartButton" type="Button" parent="MainMenu/DescriptionPanel"]
 layout_mode = 0
-offset_left = 449.0
-offset_top = 1146.0
-offset_right = 539.0
-offset_bottom = 1177.0
-scale = Vector2(1.135, 1.165)
-text = "Start Level"
+offset_left = 490.0
+offset_top = 1096.0
+offset_right = 610.0
+offset_bottom = 1216.0
+theme = ExtResource("3_5axtw")
+
+[node name="TextureRect2" type="TextureRect" parent="MainMenu/DescriptionPanel/StartButton"]
+layout_mode = 0
+offset_left = 17.0001
+offset_top = 20.0001
+offset_right = 43.0001
+offset_bottom = 44.0001
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("5_cjfp2")
+stretch_mode = 2
 
 [node name="Button" type="Button" parent="MainMenu/DescriptionPanel"]
 layout_mode = 0
-offset_left = -51.0
-offset_top = 1140.0
-offset_right = 72.0
-offset_bottom = 1177.0
-text = "Back"
+offset_left = -110.0
+offset_top = 1096.0
+offset_right = 10.0
+offset_bottom = 1216.0
+theme = ExtResource("3_iedrr")
+icon_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu/DescriptionPanel/Button"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 20.0
+offset_right = 37.0
+offset_bottom = 44.0
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("4_hsfuk")
+stretch_mode = 2
 
 [node name="GameMenu" parent="." instance=ExtResource("2_1v01p")]
 visible = false

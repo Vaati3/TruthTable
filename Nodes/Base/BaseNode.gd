@@ -37,7 +37,7 @@ func createConection(isOutput: bool, plugScene, i):
 func _ready():
 	if not canRemove:
 		$Button.visible = false
-	$RichTextLabel.append_text("[center]" + NodeType.keys()[type] + "[/center]")
+	$Panel/RichTextLabel.append_text("[center]" + NodeType.keys()[type] + "[/center]")
 	var plugScene = preload(("res://Nodes/Base/Plug.tscn"))
 	for i in range(nbInputs):
 		createConection(false, plugScene, i)
@@ -83,10 +83,6 @@ func _on_rich_text_label_gui_input(event):
 	if event is InputEventScreenDrag:
 		updateDrag(event)
 
-func _on_texture_rect_gui_input(event):
-	if event is InputEventScreenDrag:
-		updateDrag(event)
-
 func _on_button_pressed():
 	var parent = get_parent()
 	if parent is GameMenu:
@@ -98,3 +94,6 @@ func _on_button_pressed():
 		
 		parent.nodeList.erase(self)
 		queue_free()
+
+
+

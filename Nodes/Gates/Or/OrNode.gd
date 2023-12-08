@@ -7,7 +7,7 @@ var state : bool = false
 func _ready():
 	if isNot:
 		type = NodeType.NOr
-		$TextureRect.texture = load("res://Nodes/Gates/Or/nor.png")
+		$Panel/TextureRect.texture = load("res://Nodes/Gates/Or/nor.png")
 	else:
 		type = NodeType.Or
 	nbInputs = 2

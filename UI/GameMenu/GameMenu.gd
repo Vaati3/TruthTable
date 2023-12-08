@@ -60,11 +60,15 @@ func addNode(node : BaseNode):
 
 func toggleVisible(isVisible:bool):
 	$HBoxContainer.visible = isVisible
-	$Button.visible = isVisible
+	$ValidateButton.visible = isVisible
 	inputNode.visible = isVisible
 	outputNode.visible = isVisible
 	for node in nodeList:
 		node.visible = isVisible
+
+func _on_back_button_pressed():
+	toMainMenu()
+
 func _on_button_pressed():
 	toggleVisible(false)
 	$VerifyPanel.openAndRunTest()

@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://sryd043ysm2c"]
+[gd_scene load_steps=7 format=3 uid="uid://sryd043ysm2c"]
 
 [ext_resource type="Script" path="res://UI/GameMenu/GameMenu.gd" id="1_x4jee"]
+[ext_resource type="Theme" uid="uid://b7hm4jkruajuu" path="res://UI/Themes/LeftCornerButton.tres" id="2_dfmg4"]
 [ext_resource type="PackedScene" uid="uid://2631s4fm5yvb" path="res://UI/GameMenu/VerifyMenu.tscn" id="2_qp82h"]
+[ext_resource type="Theme" uid="uid://80hoaimwssja" path="res://UI/Themes/RightCornerButton.tres" id="2_rm21i"]
+[ext_resource type="Texture2D" uid="uid://6jg3dywoqtid" path="res://UI/Icons/check.svg" id="5_qnlat"]
+[ext_resource type="Texture2D" uid="uid://c50uu6wy88ik2" path="res://UI/Icons/back.svg" id="6_uynit"]
 
 [node name="GameMenu" type="ColorRect"]
 anchors_preset = 15
@@ -20,13 +24,41 @@ offset_right = 717.0
 offset_bottom = 1223.0
 theme_override_constants/separation = 100
 
-[node name="Button" type="Button" parent="."]
+[node name="BackButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 641.0
-offset_top = 1232.0
-offset_right = 712.0
-offset_bottom = 1272.0
-text = "Validate"
+offset_left = -1.0
+offset_top = 1161.0
+offset_right = 119.0
+offset_bottom = 1281.0
+theme = ExtResource("2_dfmg4")
+
+[node name="TextureRect2" type="TextureRect" parent="BackButton"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 19.0001
+offset_right = 50.0
+offset_bottom = 59.0001
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("6_uynit")
+stretch_mode = 2
+
+[node name="ValidateButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 601.0
+offset_top = 1161.0
+offset_right = 721.0
+offset_bottom = 1281.0
+theme = ExtResource("2_rm21i")
+
+[node name="TextureRect" type="TextureRect" parent="ValidateButton"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 21.0
+offset_right = 40.0
+offset_bottom = 45.0
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("5_qnlat")
+stretch_mode = 2
 
 [node name="VerifyPanel" parent="." instance=ExtResource("2_qp82h")]
 visible = false
@@ -36,4 +68,5 @@ offset_top = -2.0
 offset_right = 1153.0
 offset_bottom = 648.0
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="ValidateButton" to="." method="_on_button_pressed"]

@@ -98,10 +98,12 @@ func _on_play_button_pressed():
 		isPlayMenu = false
 		$MainMenu/LevelsScroll.visible = false
 		$MainMenu/DescriptionPanel.visible = false
+		$MainMenu/Title.visible = true
 		$MainMenu/Menu.visible = true
 	else:
 		isPlayMenu = true
 		$MainMenu/Menu.visible = false
+		$MainMenu/Title.visible = false
 		$MainMenu/LevelsScroll.visible = true
 		$MainMenu/DescriptionPanel.visible = true
 
@@ -120,6 +122,7 @@ func _on_button_pressed():
 	isPlayMenu = false
 	$MainMenu/LevelsScroll.visible = false
 	$MainMenu/DescriptionPanel.visible = false
+	$MainMenu/Title.visible = true
 	$MainMenu/Menu.visible = true
 
 func _notification(what):
@@ -128,6 +131,7 @@ func _notification(what):
 			isPlayMenu = false
 			$MainMenu/LevelsScroll.visible = false
 			$MainMenu/DescriptionPanel.visible = false
+			$MainMenu/Title.visible = true
 			$MainMenu/Menu.visible = true
 		elif isPlaying:
 			GameMenu.visible = false
