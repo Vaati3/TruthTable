@@ -6,10 +6,13 @@ func init(name:String):
 
 func updateResult(state:bool):
 	if state:
-		$ColorRect.color = Color.DARK_GREEN
+		$TextureRect.texture =  load("res://UI/Icons/circleCheck.svg")
 		$StateTxt.clear()
+		$StateTxt.modulate = Color.DARK_GREEN
 		$StateTxt.add_text("Sucess")
 	else:
-		$ColorRect.color = Color.DARK_RED
+		$TextureRect.texture =  load("res://UI/Icons/circleCross.svg")
 		$StateTxt.clear()
+		$StateTxt.modulate = Color.DARK_RED
 		$StateTxt.add_text("Failure")
+		

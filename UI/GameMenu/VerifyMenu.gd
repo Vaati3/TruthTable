@@ -20,7 +20,7 @@ func initVerify(input:InputNode, output:OutputNode, data):
 	var testScn = preload("res://UI/GameMenu/TestElement.tscn")
 	for i in range(levelData.input.tests.size()):
 		var test = testScn.instantiate()
-		test.init("Test "  + str(i + 1))
+		test.init(" : " + str(i + 1))
 		$TestBox.add_child(test)
 
 func openAndRunTest():
