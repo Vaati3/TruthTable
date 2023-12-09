@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjgcaa23uh7eq"]
+
+[ext_resource type="PackedScene" uid="uid://cc5ocbuexeov5" path="res://Nodes/Base/BaseNode.tscn" id="1_kks1b"]
+[ext_resource type="Script" path="res://Nodes/Gates/Not/NotNode.gd" id="2_y3qq0"]
+[ext_resource type="Texture2D" uid="uid://dbuvinumhkh77" path="res://Nodes/Gates/Not/not.png" id="3_dt5le"]
+
+[node name="NotNode" instance=ExtResource("1_kks1b")]
+script = ExtResource("2_y3qq0")
+
+[node name="TextureRect" parent="Panel" index="0"]
+offset_left = -43.0
+offset_top = -51.0
+offset_right = 64.0
+offset_bottom = 48.0
+texture = ExtResource("3_dt5le")
+stretch_mode = 2
+
+[node name="Button" parent="." index="1"]
+offset_left = 171.0
+offset_top = 84.0
+offset_right = 201.0
+offset_bottom = 115.0

@@ -36,6 +36,8 @@ func _on_pressed():
 			var node = preload(("res://Nodes/Gates/And/AndNode.tscn")).instantiate()
 			if nodeType == BaseNode.NodeType.NAnd: node.isNot = true
 			parentGui.addNode(node)
+		BaseNode.NodeType.Not:
+			parentGui.addNode(preload(("res://Nodes/Gates/Not/NotNode.tscn")).instantiate())
 		BaseNode.NodeType.Or, BaseNode.NodeType.NOr:
 			var node = preload(("res://Nodes/Gates/Or/OrNode.tscn")).instantiate()
 			if nodeType == BaseNode.NodeType.NOr: node.isNot = true
