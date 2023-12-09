@@ -71,6 +71,8 @@ func _get_drag_data(_pos):
 func _can_drop_data(_pos, data):
 	if  data.origin.node == node or data.origin.isInput == isInput:
 		return false
+	if not node.checkLoop(data.origin.node, isInput):
+		return false
 	return true
 
 func _drop_data(_pos, data):

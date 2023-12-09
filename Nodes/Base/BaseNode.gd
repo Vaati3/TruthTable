@@ -75,6 +75,22 @@ func updateDrag(event):
 				link.linkPos += event.relative
 				link.queue_redraw()
 
+#not very good but works
+func checkLoop(newNode:BaseNode, isInput:bool) -> bool:
+	var res:bool = true
+	if newNode == self:
+		return false
+	if isInput:
+		for output in outputs:
+			if output.isPluged:
+				for link in output.allLink:
+					if not link.node.checkLoop(newNode, isInput): return false
+	else:
+		for input in inputs:
+			if input.isPluged:
+				if not input.linked.node.checkLoop(newNode, isInput) : return false
+	return res
+
 func _on_panel_gui_input(event):
 	if event is InputEventScreenDrag:
 		updateDrag(event)
