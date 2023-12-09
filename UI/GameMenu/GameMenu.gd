@@ -20,7 +20,7 @@ func clearGame():
 		child.queue_free()
 
 func fillNodesBtn():
-	var btnScene = preload(("res://UI/GameMenu/nodeButton.tscn"))
+	var btnScene = preload(("res://UI/GameMenu/NodeButton.tscn"))
 	for i in range(levelData.nodeAvailable.size()):
 		if levelData.nodeAvailable[i]:
 			var btn = btnScene.instantiate()
