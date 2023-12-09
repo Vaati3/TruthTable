@@ -20,8 +20,8 @@ var box
 var greenBox
 var redBox
 
-func getMiddle(vector : Vector2, size : Vector2, scale : Vector2) -> Vector2:
-	return Vector2(vector.x + (size.x * scale.x / 2), vector.y + (size.y * scale.y / 2))
+func getMiddle(vector : Vector2, sizes : Vector2, scales : Vector2) -> Vector2:
+	return Vector2(vector.x + (sizes.x * scales.x / 2), vector.y + (sizes.y * scales.y / 2))
 
 func init(isOutput, parentNode, i):
 	isInput = not isOutput
@@ -37,7 +37,7 @@ func _ready():
 	redBox = get_theme_stylebox("panel").duplicate()
 	redBox.bg_color = Color.DARK_RED
 
-func _process(delta):
+func _process(_delta):
 	if drawLine:
 		linkPos = get_viewport().get_mouse_position() - global_position
 		queue_redraw()
@@ -49,7 +49,6 @@ func _draw():
 func reset():
 	if not isInput:
 		return
-	var box = StyleBoxFlat.new()
 	add_theme_stylebox_override("panel", box)
 	isPluged = false
 	isLinked = false

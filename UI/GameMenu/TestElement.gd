@@ -1,8 +1,8 @@
 extends Control
 class_name TestElement
 
-func init(name:String):
-	$NameTxt.add_text(name)
+func init(leveName:String):
+	$NameTxt.add_text(leveName)
 
 func updateResult(state:bool):
 	if state:

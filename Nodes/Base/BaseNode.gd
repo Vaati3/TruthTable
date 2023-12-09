@@ -60,7 +60,7 @@ func updateNode():
 	if isLast:
 		updateAll(index)
 
-func updateAll(index : int) -> bool:
+func updateAll(_index : int) -> bool:
 	return false
 
 func updateDrag(event):

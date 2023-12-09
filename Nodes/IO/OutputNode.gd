@@ -24,7 +24,7 @@ func _ready():
 	nbOutputs = 0
 	super()
 
-func updateAll(index : int) -> bool:
+func updateAll(_index : int) -> bool:
 	for i in range(nbInputs):
 		values[i] = inputs[i].updateLink()
 	#add complete level logic

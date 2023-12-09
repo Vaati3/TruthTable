@@ -14,7 +14,7 @@ func _ready():
 	nbOutputs = 1
 	super()
 
-func updateAll(index : int) -> bool:
+func updateAll(_index : int) -> bool:
 	var a : bool = inputs[0].updateLink()
 	var b : bool = inputs[1].updateLink()
 	state = a and b
