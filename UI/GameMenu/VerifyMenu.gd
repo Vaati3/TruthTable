@@ -29,10 +29,8 @@ func openAndRunTest():
 	var tests = levelData.input.tests
 	var results = levelData.output.results
 	var elements = $TestBox.get_children()
-	
 	var score :int = 0
 	
-	queue_redraw()
 	for i in range(tests.size()):
 		inputNode.values = tests[i]
 		inputNode.updateNode()

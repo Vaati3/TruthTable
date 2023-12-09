@@ -1,8 +1,8 @@
 extends BaseNode
 class_name InputNode
 
-@export var amount: int = 2
-@export var values: Array = [true, false]
+@export var amount: int = 0
+@export var values: Array = []
 
 var btnList = []
 var toggleBtnOffset: int = 45
@@ -24,7 +24,7 @@ func loadLevel(data):
 	btnList.clear()
 
 	nbOutputs = data.amount
-	values = data.tests[1]
+	values = data.tests[0].duplicate()
 	
 	var plugScene = preload(("res://Nodes/Base/Plug.tscn"))
 	var btnScene = preload(("res://Nodes/IO/ToggleButton.tscn"))
