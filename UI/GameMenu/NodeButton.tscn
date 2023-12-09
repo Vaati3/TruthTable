@@ -1,10 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://nijgtoih5kqj"]
+[gd_scene load_steps=5 format=3 uid="uid://nijgtoih5kqj"]
 
 [ext_resource type="Script" path="res://UI/GameMenu/NodeButton.gd" id="1_qljgj"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ce82s"]
+bg_color = Color(0.458824, 0.458824, 0.458824, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oltvq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nr6vx"]
+
 [node name="NodeButton" type="Button"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 120.0
+offset_bottom = 120.0
+scale = Vector2(1.00146, 0.990948)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ce82s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_oltvq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nr6vx")
 script = ExtResource("1_qljgj")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 120.185
+offset_bottom = 31.43
+scale = Vector2(0.984598, 1)
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 9.98538
+offset_top = 30.274
+offset_right = 109.985
+offset_bottom = 110.274
+stretch_mode = 1
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

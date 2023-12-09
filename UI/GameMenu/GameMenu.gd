@@ -6,6 +6,9 @@ var outputNode : OutputNode = null
 var levelData
 
 var nodeList : Array[BaseNode] = []
+var isSliderOut : bool = false
+var sliderMoving : bool = false
+var sliderSpeed : int = 6
 
 #maybe add save system
 func clearGame():
@@ -13,7 +16,7 @@ func clearGame():
 		node.queue_free()
 	nodeList.clear()
 	
-	for child in $HBoxContainer.get_children():
+	for child in $Panel/HBoxContainer.get_children():
 		child.queue_free()
 
 func fillNodesBtn():
@@ -24,7 +27,7 @@ func fillNodesBtn():
 			btn.init(self, BaseNode.NodeType.keys()[i+3], BaseNode.NodeType.values()[i+3])
 			var control = Control.new()
 			control.add_child(btn)
-			$HBoxContainer.add_child(control)
+			$Panel/HBoxContainer.add_child(control)
 
 func startLevel(data):
 	clearGame()
@@ -45,6 +48,20 @@ func _ready():
 	inputNode.position = Vector2(300, 100)
 	outputNode.position = Vector2(300, 800)
 
+func _process(_delta):
+	if sliderMoving:
+		var screenheight = get_viewport_rect().size.y
+		if isSliderOut:
+			$Panel.position.y -= sliderSpeed
+			if $Panel.position.y <= screenheight - $Panel.size.y:
+				$Panel.position.y = screenheight - $Panel.size.y
+				sliderMoving = false
+		else:
+			$Panel.position.y += sliderSpeed
+			if $Panel.position.y >= screenheight:
+				$Panel.position.y = screenheight
+				sliderMoving = false
+
 func moveScreen(relative):
 	inputNode.position += relative
 	outputNode.position += relative
@@ -56,10 +73,10 @@ func addNode(node : BaseNode):
 	add_child(node)
 	nodeList.append(node)
 	
-	node.position = Vector2(400, 300)
+	node.position = Vector2(300, 400)
 
 func toggleVisible(isVisible:bool):
-	$HBoxContainer.visible = isVisible
+	$Panel/HBoxContainer.visible = isVisible
 	$ValidateButton.visible = isVisible
 	inputNode.visible = isVisible
 	outputNode.visible = isVisible
@@ -73,6 +90,13 @@ func _on_button_pressed():
 	toggleVisible(false)
 	$VerifyPanel.openAndRunTest()
 
+func _on_slider_button_pressed():
+	sliderMoving = true
+	if isSliderOut:
+		isSliderOut = false
+	else:
+		isSliderOut = true
+
 func updateScore():
 	var parent = get_parent()
 	
@@ -85,3 +109,7 @@ func toMainMenu():
 	if parent is MainMenu:
 		visible = false
 		parent.showMainMenu()
+	
+	sliderMoving = false
+	isSliderOut = false
+	$Panel.position.y = get_viewport_rect().size.y
