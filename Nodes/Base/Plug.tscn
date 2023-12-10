@@ -5,7 +5,7 @@
 
 [node name="Plug" type="Panel"]
 custom_minimum_size = Vector2(40, 40)
-offset_right = 40.0
+offset_right = 60.0
 offset_bottom = 40.0
 size_flags_horizontal = 4
 theme = ExtResource("1_y0sec")

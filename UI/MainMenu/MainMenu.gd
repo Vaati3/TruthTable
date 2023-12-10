@@ -65,8 +65,11 @@ func _ready():
 		fillLevels()
 
 func selectLevel(level):
+	$MainMenu/DescriptionPanel/Label.text = level.name
 	$MainMenu/DescriptionPanel/DescriptionText.clear()
 	$MainMenu/DescriptionPanel/DescriptionText.append_text(level.description)
+	$MainMenu/DescriptionPanel/table.texture = load(level.table)
+	$MainMenu/DescriptionPanel/table.scale = Vector2(level.tableScale.x, level.tableScale.y)
 	$MainMenu/DescriptionPanel/ScoreText.clear()
 	$MainMenu/DescriptionPanel/ScoreText.append_text("Can be done using only " + str(level.minScore) + " NAnd gates\n")
 	if saveData.scoreList[level.id] > 0:

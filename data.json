@@ -3,8 +3,9 @@
 		{
 			"id": 0,
 			"name": "Level 1: Not",
-			"description": "Create Not from NAnd",
-			"sprite": "path to sprite maybe truth table",
+			"description": "Create Not from NAnd.\nYou can see the truth tables for nand and not",
+			"table": "res://UI/Tables/nandnottable.png",
+			"tableScale": {"x": 0.2, "y": 0.2},
 			"minScore": 1,
 			"input":{
 				"amount": 1,
@@ -25,6 +26,8 @@
 			"id": 1,
 			"name": "Level 2: And",
 			"description": "Create And from NAnd and Not",
+			"table": "res://UI/Tables/andtable.png",
+			"tableScale": {"x": 0.2, "y": 0.2},
 			"minScore": 2,
 			"input":{
 				"amount": 2,
@@ -49,6 +52,8 @@
 			"id": 2,
 			"name": "Level 3: Or",
 			"description": "Create Or",
+			"table": "res://UI/Tables/ortable.png",
+			"tableScale": {"x": 0.2, "y": 0.2},
 			"minScore": 3,
 			"input":{
 				"amount": 2,
@@ -73,6 +78,8 @@
 			"id": 3,
 			"name": "Level 4: NOr",
 			"description": "Create NOr",
+			"table": "res://UI/Tables/nortable.png",
+			"tableScale": {"x": 0.2, "y": 0.2},
 			"minScore": 4,
 			"input":{
 				"amount": 2,
@@ -97,6 +104,8 @@
 			"id": 4,
 			"name": "Level 5: XOr",
 			"description": "Create XOr",
+			"table": "res://UI/Tables/xortable.png",
+			"tableScale": {"x": 0.2, "y": 0.2},
 			"minScore": 4,
 			"input":{
 				"amount": 2,
@@ -122,6 +131,8 @@
 			"id": 5,
 			"name": "Level 6: NXOr",
 			"description": "Create NXOr",
+			"table": "res://UI/Tables/xnortable.png",
+			"tableScale": {"x": 0.2, "y": 0.2},
 			"minScore": 5,
 			"input":{
 				"amount": 2,

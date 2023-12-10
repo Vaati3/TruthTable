@@ -99,21 +99,35 @@ offset_top = 63.0
 offset_right = 609.0
 offset_bottom = 563.0
 
+[node name="Label" type="Label" parent="MainMenu/DescriptionPanel"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 16.0
+offset_right = 344.0
+offset_bottom = 62.0
+
 [node name="DescriptionText" type="RichTextLabel" parent="MainMenu/DescriptionPanel"]
 layout_mode = 0
-offset_left = 20.0
-offset_top = 16.0
-offset_right = 382.0
-offset_bottom = 161.0
+offset_left = 12.0
+offset_top = 109.0
+offset_right = 210.0
+offset_bottom = 321.0
 scale = Vector2(1.25, 1.25)
 scroll_active = false
 
+[node name="table" type="TextureRect" parent="MainMenu/DescriptionPanel"]
+layout_mode = 0
+offset_left = 283.0
+offset_top = 96.0
+offset_right = 484.0
+offset_bottom = 366.0
+
 [node name="ScoreText" type="RichTextLabel" parent="MainMenu/DescriptionPanel"]
 layout_mode = 0
-offset_left = 26.0
-offset_top = 389.0
-offset_right = 347.0
-offset_bottom = 473.0
+offset_left = 83.0
+offset_top = 432.0
+offset_right = 404.0
+offset_bottom = 516.0
 scroll_active = false
 
 [node name="StartButton" type="Button" parent="MainMenu/DescriptionPanel"]
