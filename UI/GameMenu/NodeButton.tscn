@@ -27,10 +27,11 @@ horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 9.98538
-offset_top = 30.274
-offset_right = 109.985
-offset_bottom = 110.274
-stretch_mode = 1
+offset_left = 10.984
+offset_top = 29.2649
+offset_right = 147.984
+offset_bottom = 141.265
+scale = Vector2(0.8, 0.8)
+stretch_mode = 2
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
