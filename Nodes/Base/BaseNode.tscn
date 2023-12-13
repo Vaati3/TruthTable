@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cc5ocbuexeov5"]
+[gd_scene load_steps=4 format=3 uid="uid://cc5ocbuexeov5"]
 
 [ext_resource type="Script" path="res://Nodes/Base/BaseNode.gd" id="1_3vd4y"]
 [ext_resource type="Theme" uid="uid://cplugaykny80x" path="res://Nodes/Themes/NodeTheme.tres" id="2_685hj"]
+[ext_resource type="AudioStream" uid="uid://eomw8em1sogd" path="res://Sounds/button.mp3" id="3_0s4nq"]
 
 [node name="BaseNode" type="Node2D"]
 script = ExtResource("1_3vd4y")
@@ -45,6 +46,9 @@ offset_top = 80.0
 offset_right = 200.0
 offset_bottom = 111.0
 text = "X"
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="Button"]
+stream = ExtResource("3_0s4nq")
 
 [connection signal="gui_input" from="Panel" to="." method="_on_panel_gui_input"]
 [connection signal="gui_input" from="Panel/RichTextLabel" to="." method="_on_rich_text_label_gui_input"]

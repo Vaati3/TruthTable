@@ -31,6 +31,7 @@ func init(gui, nameNode, type):
 	$TextureRect.texture = loadTexture()
 
 func _on_pressed():
+	$Audio.play(0.24)
 	match nodeType:
 		BaseNode.NodeType.And, BaseNode.NodeType.NAnd:
 			var node = preload(("res://Nodes/Gates/And/AndNode.tscn")).instantiate()

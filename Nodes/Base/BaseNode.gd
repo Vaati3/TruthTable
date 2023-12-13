@@ -100,6 +100,7 @@ func _on_rich_text_label_gui_input(event):
 		updateDrag(event)
 
 func _on_button_pressed():
+	$Button/Audio.play(0.24)
 	var parent = get_parent()
 	if parent is GameMenu:
 		for input in inputs:

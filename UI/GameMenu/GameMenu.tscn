@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://sryd043ysm2c"]
+[gd_scene load_steps=11 format=3 uid="uid://sryd043ysm2c"]
 
 [ext_resource type="Script" path="res://UI/GameMenu/GameMenu.gd" id="1_x4jee"]
 [ext_resource type="Theme" uid="uid://b7hm4jkruajuu" path="res://UI/Themes/LeftCornerButton.tres" id="2_dfmg4"]
+[ext_resource type="AudioStream" uid="uid://eomw8em1sogd" path="res://Sounds/button.mp3" id="2_kr8fs"]
 [ext_resource type="PackedScene" uid="uid://2631s4fm5yvb" path="res://UI/GameMenu/VerifyMenu.tscn" id="2_qp82h"]
 [ext_resource type="Theme" uid="uid://80hoaimwssja" path="res://UI/Themes/RightCornerButton.tres" id="2_rm21i"]
 [ext_resource type="Texture2D" uid="uid://6jg3dywoqtid" path="res://UI/Icons/check.svg" id="5_qnlat"]
@@ -24,6 +25,9 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.364706, 0.364706, 0.364706, 1)
 script = ExtResource("1_x4jee")
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_kr8fs")
 
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 0

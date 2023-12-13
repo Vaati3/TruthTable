@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmnh3uxk6hlaj"]
+[gd_scene load_steps=9 format=3 uid="uid://dmnh3uxk6hlaj"]
 
 [ext_resource type="Script" path="res://UI/MainMenu/MainMenu.gd" id="1_2q6v6"]
 [ext_resource type="PackedScene" uid="uid://sryd043ysm2c" path="res://UI/GameMenu/GameMenu.tscn" id="2_1v01p"]
@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://b7hm4jkruajuu" path="res://UI/Themes/LeftCornerButton.tres" id="3_iedrr"]
 [ext_resource type="Texture2D" uid="uid://c50uu6wy88ik2" path="res://UI/Icons/back.svg" id="4_hsfuk"]
 [ext_resource type="Texture2D" uid="uid://6jg3dywoqtid" path="res://UI/Icons/check.svg" id="5_cjfp2"]
+[ext_resource type="AudioStream" uid="uid://eomw8em1sogd" path="res://Sounds/button.mp3" id="8_udmmx"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -175,6 +176,12 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_udmmx")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+volume_db = -5.136
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="pressed" from="MainMenu/Menu/PlayButton" to="." method="_on_play_button_pressed"]

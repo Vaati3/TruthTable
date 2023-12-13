@@ -84,13 +84,16 @@ func toggleVisible(isVisible:bool):
 		node.visible = isVisible
 
 func _on_back_button_pressed():
+	$Audio.play(0.24)
 	toMainMenu()
 
 func _on_button_pressed():
+	$Audio.play(0.24)
 	toggleVisible(false)
 	$VerifyPanel.openAndRunTest()
 
 func _on_slider_button_pressed():
+	$Audio.play(0.24)
 	sliderMoving = true
 	if isSliderOut:
 		isSliderOut = false

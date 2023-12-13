@@ -59,6 +59,7 @@ func reset():
 		linked = null
 
 func _get_drag_data(_pos):
+	$AudioTic.play()
 	if isPluged and isInput:
 		reset()
 	var data = {
@@ -76,6 +77,7 @@ func _can_drop_data(_pos, data):
 	return true
 
 func _drop_data(_pos, data):
+	$AudioPop.play(0.2)
 	if isPluged:
 		reset()
 	drawLine = false

@@ -1,11 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0vt4hfd2u2af"]
+[gd_scene load_steps=3 format=3 uid="uid://d0vt4hfd2u2af"]
 
 [ext_resource type="Script" path="res://Nodes/IO/ToggleButton.gd" id="1_x52h0"]
+[ext_resource type="AudioStream" uid="uid://eomw8em1sogd" path="res://Sounds/button.mp3" id="2_fewsl"]
 
 [node name="Button" type="Button"]
 custom_minimum_size = Vector2(40, 40)
 offset_right = 8.0
 offset_bottom = 8.0
 script = ExtResource("1_x52h0")
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_fewsl")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

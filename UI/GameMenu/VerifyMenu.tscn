@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://2631s4fm5yvb"]
+[gd_scene load_steps=6 format=3 uid="uid://2631s4fm5yvb"]
 
 [ext_resource type="Script" path="res://UI/GameMenu/VerifyMenu.gd" id="1_c542l"]
 [ext_resource type="Theme" uid="uid://80hoaimwssja" path="res://UI/Themes/RightCornerButton.tres" id="2_fsdh4"]
 [ext_resource type="Theme" uid="uid://b7hm4jkruajuu" path="res://UI/Themes/LeftCornerButton.tres" id="3_a725e"]
+[ext_resource type="AudioStream" uid="uid://eomw8em1sogd" path="res://Sounds/button.mp3" id="4_ydxeg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g1vud"]
 bg_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
@@ -51,6 +52,9 @@ offset_bottom = 1282.0
 theme = ExtResource("2_fsdh4")
 text = "Retry
 "
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ydxeg")
 
 [connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

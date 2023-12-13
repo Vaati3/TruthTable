@@ -9,4 +9,5 @@ func init(menuRef, data):
 	mainMenuRef = menuRef
 
 func _on_pressed():
+	$Audio.play(0.24)
 	mainMenuRef.selectLevel(levelData)

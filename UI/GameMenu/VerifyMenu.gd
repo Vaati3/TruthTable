@@ -48,12 +48,14 @@ func openAndRunTest():
 	inputNode.updateNode()
 
 func _on_back_button_pressed():
+	$Audio.play(0.24)
 	visible = false
 	var parent = get_parent()
 	if parent is GameMenu:
 		parent.toggleVisible(true)
 
 func _on_menu_button_pressed():
+	$Audio.play(0.24)
 	var parent = get_parent()
 	
 	if parent is GameMenu:

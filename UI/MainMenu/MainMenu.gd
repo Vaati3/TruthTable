@@ -59,10 +59,15 @@ func fillLevels():
 			control.add_child(btn)
 			$MainMenu/LevelsScroll/Levels.add_child(control)
 
+func playMusic():
+	$Music.stream = load("res://Sounds/music" + str(randi_range(1, 3)) + ".mp3")
+	$Music.play()
+
 func _ready():
 	if readLevelData():
 		loadSave()
 		fillLevels()
+		playMusic()
 
 func selectLevel(level):
 	$MainMenu/DescriptionPanel/Label.text = level.name
@@ -97,6 +102,7 @@ func showMainMenu():
 	$MainMenu.visible = true
 
 func _on_play_button_pressed():
+	$Audio.play(0.24)
 	if isPlayMenu:
 		isPlayMenu = false
 		$MainMenu/LevelsScroll.visible = false
@@ -111,17 +117,21 @@ func _on_play_button_pressed():
 		$MainMenu/DescriptionPanel.visible = true
 
 func _on_option_button_pressed():
+	$Audio.play(0.24)
 	pass # show option menu to be added.
 
 func _on_quit_button_pressed():
+	$Audio.play(0.24)
 	get_tree().quit()
 
 func _on_start_button_pressed():
+	$Audio.play(0.24)
 	$MainMenu.visible = false
 	isPlaying = true
 	$GameMenu.startLevel(selectedLevel)
 
 func _on_button_pressed():
+	$Audio.play(0.24)
 	isPlayMenu = false
 	$MainMenu/LevelsScroll.visible = false
 	$MainMenu/DescriptionPanel.visible = false
