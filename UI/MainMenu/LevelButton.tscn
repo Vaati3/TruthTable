@@ -4,8 +4,9 @@
 [ext_resource type="AudioStream" uid="uid://eomw8em1sogd" path="res://Sounds/button.mp3" id="2_u62mo"]
 
 [node name="LevelButton" type="Button"]
-offset_right = 118.0
-offset_bottom = 40.0
+custom_minimum_size = Vector2(200, 150)
+offset_right = 8.0
+offset_bottom = 8.0
 scale = Vector2(1.4725, 2.07107)
 script = ExtResource("1_esv00")
 

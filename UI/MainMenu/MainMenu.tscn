@@ -109,6 +109,7 @@ offset_right = 570.0
 offset_bottom = 561.0
 label = "Music Volume"
 busName = "Music"
+index = 1
 
 [node name="SFXSlider" parent="MainMenu/OptionMenu" instance=ExtResource("9_rg8mx")]
 layout_mode = 0
@@ -118,6 +119,7 @@ offset_right = 569.0
 offset_bottom = 759.0
 label = "Sound Effect Volume"
 busName = "SFX"
+index = 2
 
 [node name="QuitOption" type="Button" parent="MainMenu/OptionMenu"]
 layout_mode = 0
@@ -131,20 +133,16 @@ text = "Quit"
 visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.058
-anchor_top = 0.018
-anchor_right = 0.058
-anchor_bottom = 0.018
-offset_left = 8.24
-offset_top = 576.87
-offset_right = 608.24
-offset_bottom = 1176.87
+offset_left = 64.0
+offset_top = 605.0
+offset_right = 664.0
+offset_bottom = 1105.0
+horizontal_scroll_mode = 0
 
-[node name="Levels" type="VBoxContainer" parent="MainMenu/LevelsScroll"]
+[node name="Grid" type="GridContainer" parent="MainMenu/LevelsScroll"]
+custom_minimum_size = Vector2(600, 500)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/separation = 100
+columns = 3
 
 [node name="DescriptionPanel" type="Panel" parent="MainMenu"]
 visible = false

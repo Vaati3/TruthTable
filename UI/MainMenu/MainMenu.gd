@@ -13,7 +13,8 @@ var selectedLevel
 
 var saveData = {
 	"unlockedLevels": [],
-	"scoreList": []
+	"scoreList": [],
+	"options": {"volume": [0.5, 0.5, 0.5], "muted": [false, false, false]}
 }
 
 func save():
@@ -28,14 +29,16 @@ func loadSave():
 			saveData.unlockedLevels.append(false)
 			saveData.scoreList.append(0)
 		saveData.unlockedLevels[0] = true
-		return
+		save()
 	
 	var saveFile = FileAccess.open("user://save.save", FileAccess.READ)
 	var json = JSON.new()
 	var error = json.parse(saveFile.get_as_text())
 	if error == OK:
-		saveData.unlockedLevels = json.data.unlockedLevels
-		saveData.scoreList = json.data.scoreList
+		saveData = json.data
+		for child in $MainMenu/OptionMenu.get_children():
+			if child is VolumeSlider:
+				child.loadSave(self)
 
 func readLevelData() -> bool:
 	if not FileAccess.file_exists("res://data.json"):
@@ -53,16 +56,16 @@ func readLevelData() -> bool:
 		return false
 
 func fillLevels():
-	for child in $MainMenu/LevelsScroll/Levels.get_children():
+	for child in $MainMenu/LevelsScroll/Grid.get_children():
 		child.queue_free()
 	var btnScene = preload(("res://UI/MainMenu/LevelButton.tscn"))
 	for level in data.levels:
 		if saveData.unlockedLevels[level.id]:
 			var btn = btnScene.instantiate()
 			btn.init(self, level)
-			var control = Control.new()
-			control.add_child(btn)
-			$MainMenu/LevelsScroll/Levels.add_child(control)
+			#var control = Control.new()
+			#control.add_child(btn)
+			$MainMenu/LevelsScroll/Grid.add_child(btn)
 
 func playMusic():
 	$Music.stream = load("res://Sounds/music" + str(randi_range(1, 3)) + ".mp3")
