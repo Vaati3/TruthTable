@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmnh3uxk6hlaj"]
+[gd_scene load_steps=10 format=3 uid="uid://dmnh3uxk6hlaj"]
 
 [ext_resource type="Script" path="res://UI/MainMenu/MainMenu.gd" id="1_2q6v6"]
 [ext_resource type="PackedScene" uid="uid://sryd043ysm2c" path="res://UI/GameMenu/GameMenu.tscn" id="2_1v01p"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c50uu6wy88ik2" path="res://UI/Icons/back.svg" id="4_hsfuk"]
 [ext_resource type="Texture2D" uid="uid://6jg3dywoqtid" path="res://UI/Icons/check.svg" id="5_cjfp2"]
 [ext_resource type="AudioStream" uid="uid://eomw8em1sogd" path="res://Sounds/button.mp3" id="8_udmmx"]
+[ext_resource type="PackedScene" uid="uid://17ckr38omtt0" path="res://UI/MainMenu/VolumeSlider.tscn" id="9_rg8mx"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -37,7 +38,7 @@ offset_bottom = 267.0
 theme_override_font_sizes/normal_font_size = 66
 bbcode_enabled = true
 text = "[center]Truth[/center]
-[center]Table[/center]"
+[center]Tables[/center]"
 
 [node name="TextureRect" type="TextureRect" parent="MainMenu/Title"]
 layout_mode = 0
@@ -71,6 +72,59 @@ text = "Options"
 [node name="QuitButton" type="Button" parent="MainMenu/Menu"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+text = "Quit"
+
+[node name="OptionMenu" type="Panel" parent="MainMenu"]
+visible = false
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 718.0
+offset_bottom = 1277.0
+
+[node name="Label" type="Label" parent="MainMenu/OptionMenu"]
+layout_mode = 0
+offset_left = 225.0
+offset_top = 105.0
+offset_right = 494.0
+offset_bottom = 223.0
+theme_override_font_sizes/font_size = 60
+text = "Options"
+horizontal_alignment = 1
+
+[node name="MasterSlider" parent="MainMenu/OptionMenu" instance=ExtResource("9_rg8mx")]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 332.0
+offset_right = 574.0
+offset_bottom = 372.0
+label = "Master Volume"
+busName = "Master"
+
+[node name="MusicSlider" parent="MainMenu/OptionMenu" instance=ExtResource("9_rg8mx")]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 521.0
+offset_right = 570.0
+offset_bottom = 561.0
+label = "Music Volume"
+busName = "Music"
+
+[node name="SFXSlider" parent="MainMenu/OptionMenu" instance=ExtResource("9_rg8mx")]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 719.0
+offset_right = 569.0
+offset_bottom = 759.0
+label = "Sound Effect Volume"
+busName = "SFX"
+
+[node name="QuitOption" type="Button" parent="MainMenu/OptionMenu"]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 1021.0
+offset_right = 465.0
+offset_bottom = 1116.0
 text = "Quit"
 
 [node name="LevelsScroll" type="ScrollContainer" parent="MainMenu"]
@@ -179,13 +233,16 @@ grow_vertical = 1
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_udmmx")
+bus = &"SFX"
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 volume_db = -5.136
+bus = &"Music"
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="pressed" from="MainMenu/Menu/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MainMenu/Menu/OptionButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="MainMenu/Menu/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MainMenu/OptionMenu/QuitOption" to="." method="_on_quit_option_pressed"]
 [connection signal="pressed" from="MainMenu/DescriptionPanel/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MainMenu/DescriptionPanel/Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://17ckr38omtt0"]
+
+[ext_resource type="Script" path="res://UI/MainMenu/VolumeSlider.gd" id="1_ofjqw"]
+
+[node name="VolumeSlider" type="HSlider"]
+offset_left = 1.0
+offset_top = 59.0
+offset_right = 401.0
+offset_bottom = 99.0
+max_value = 1.0
+step = 0.001
+value = 0.5
+script = ExtResource("1_ofjqw")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -61.0
+offset_right = 399.0
+offset_bottom = -22.0
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+
+[node name="Mute" type="CheckBox" parent="."]
+layout_mode = 0
+offset_left = 161.0
+offset_top = 50.0
+offset_right = 230.0
+offset_bottom = 81.0
+scale = Vector2(1.2, 1.2)
+text = "Mute"
+
+[connection signal="value_changed" from="." to="." method="_on_value_changed"]
+[connection signal="toggled" from="Mute" to="." method="_on_mute_toggled"]

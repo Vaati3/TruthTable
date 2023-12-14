@@ -49,6 +49,7 @@ text = "X"
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="Button"]
 stream = ExtResource("3_0s4nq")
+bus = &"SFX"
 
 [connection signal="gui_input" from="Panel" to="." method="_on_panel_gui_input"]
 [connection signal="gui_input" from="Panel/RichTextLabel" to="." method="_on_rich_text_label_gui_input"]
