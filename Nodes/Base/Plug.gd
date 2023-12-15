@@ -10,18 +10,15 @@ var node : BaseNode
 var isLinked : bool = false
 var linked : Plug = null
 var drawLine : bool = false
+var linkPos : Vector2
 #for outputs only
 var allLink : Array[Plug] = []
-var linkPos : Vector2
 
 var index : int
 var lineColour = Color.WHITE
 var box
 var greenBox
 var redBox
-
-func getMiddle(vector : Vector2, sizes : Vector2, scales : Vector2) -> Vector2:
-	return Vector2(vector.x + (sizes.x * scales.x / 2), vector.y + (sizes.y * scales.y / 2))
 
 func init(isOutput, parentNode, i):
 	isInput = not isOutput
@@ -45,6 +42,12 @@ func _process(_delta):
 func _draw():
 	if isLinked:
 		draw_line(getMiddle(Vector2(0, 0), size, scale), linkPos, lineColour, 10)
+
+func getMiddle(vector : Vector2, sizes : Vector2, scales : Vector2) -> Vector2:
+	return Vector2(vector.x + (sizes.x * scales.x / 2), vector.y + (sizes.y * scales.y / 2))
+
+func setLabel(label):
+	$Label.text = label
 
 func reset():
 	if not isInput:

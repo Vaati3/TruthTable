@@ -1,12 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0vt4hfd2u2af"]
+[gd_scene load_steps=4 format=3 uid="uid://d0vt4hfd2u2af"]
 
 [ext_resource type="Script" path="res://Nodes/IO/ToggleButton.gd" id="1_x52h0"]
 [ext_resource type="AudioStream" uid="uid://eomw8em1sogd" path="res://Sounds/button.mp3" id="2_fewsl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vvoci"]
+bg_color = Color(0.772549, 0.772549, 0.772549, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
 
 [node name="Button" type="Button"]
 custom_minimum_size = Vector2(40, 40)
 offset_right = 8.0
 offset_bottom = 8.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_vvoci")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vvoci")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vvoci")
 script = ExtResource("1_x52h0")
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]

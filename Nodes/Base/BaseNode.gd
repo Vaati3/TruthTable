@@ -34,6 +34,12 @@ func createConection(isOutput: bool, plugScene, i):
 		plug.position.y = inputPlugOrigin.y
 		inputs.append(plug)
 
+func scaleNode():
+	var n:int = max(nbInputs, nbOutputs)
+	
+	if n > 2:
+		$Panel.size.x += (n - 2) * (plugOffset)
+
 func _ready():
 	if not canRemove:
 		$Button.visible = false
@@ -43,6 +49,7 @@ func _ready():
 		createConection(false, plugScene, i)
 	for j in range(nbOutputs):
 		createConection(true, plugScene, j)
+	scaleNode()
 
 func updateNode():
 	var index : int = 0

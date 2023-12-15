@@ -16,6 +16,7 @@ func loadLevel(data):
 	var plugScene = preload(("res://Nodes/Base/Plug.tscn"))
 	for i in range(nbInputs):
 		createConection(false, plugScene, i)
+	scaleNode()
 
 func _ready():
 	type = NodeType.Output
