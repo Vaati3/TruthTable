@@ -2,7 +2,7 @@ extends BaseNode
 class_name OutputNode
 
 @export var amount: int = 1
-var values: Array[bool] = [false]
+var values: Array[bool] = []
 var outputData
 
 func loadLevel(data):
@@ -15,7 +15,9 @@ func loadLevel(data):
 	
 	var plugScene = preload(("res://Nodes/Base/Plug.tscn"))
 	for i in range(nbInputs):
+		values.append(false)
 		createConection(false, plugScene, i)
+		inputs[i].setLabel(data.labels[i])
 	scaleNode()
 
 func _ready():

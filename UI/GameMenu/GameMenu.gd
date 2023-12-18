@@ -16,7 +16,7 @@ func clearGame():
 		node.queue_free()
 	nodeList.clear()
 	
-	for child in $Panel/HBoxContainer.get_children():
+	for child in $Panel/Scroll/HBoxContainer.get_children():
 		child.queue_free()
 
 func fillNodesBtn():
@@ -27,7 +27,7 @@ func fillNodesBtn():
 			btn.init(self, BaseNode.NodeType.keys()[i+3], BaseNode.NodeType.values()[i+3])
 			var control = Control.new()
 			control.add_child(btn)
-			$Panel/HBoxContainer.add_child(control)
+			$Panel/Scroll/HBoxContainer.add_child(control)
 
 func startLevel(data):
 	clearGame()
@@ -76,7 +76,7 @@ func addNode(node : BaseNode):
 	node.position = Vector2(300, 400)
 
 func toggleVisible(isVisible:bool):
-	$Panel/HBoxContainer.visible = isVisible
+	$Panel/Scroll/HBoxContainer.visible = isVisible
 	$ValidateButton.visible = isVisible
 	inputNode.visible = isVisible
 	outputNode.visible = isVisible

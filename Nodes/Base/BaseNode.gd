@@ -5,7 +5,7 @@ enum NodeType {
 	Base, Input, Output,
 	NAnd, Not, And,
 	Or, NOr, XOr, XNOr,
-	Mux, DeMux
+	Mux, DMux
 }
 
 var type : NodeType = NodeType.Base

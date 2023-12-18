@@ -94,13 +94,19 @@ texture = ExtResource("6_j0y7l")
 stretch_mode = 2
 flip_v = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+[node name="Scroll" type="ScrollContainer" parent="Panel"]
 layout_mode = 0
-offset_left = 3.0
-offset_top = 11.0
-offset_right = 719.0
-offset_bottom = 131.0
-theme_override_constants/separation = 100
+offset_left = 10.0
+offset_top = 7.0
+offset_right = 714.0
+offset_bottom = 132.0
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 120
 
 [node name="VerifyPanel" parent="." instance=ExtResource("2_qp82h")]
 visible = false

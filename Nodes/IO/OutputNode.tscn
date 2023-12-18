@@ -5,7 +5,7 @@
 
 [node name="OutputNode" instance=ExtResource("1_kahsg")]
 script = ExtResource("2_l7jut")
-amount = null
+amount = 1
 
 [node name="RichTextLabel" parent="Panel" index="1"]
 offset_left = 53.0

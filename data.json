@@ -3,13 +3,13 @@
 		{
 			"id": 0,
 			"name": "Level 1: Not",
-			"description": "Create Not from NAnd.\nYou can see the truth tables for nand and not",
+			"description": "Create the Not Gate that return the opposite of the input using the provided NAnd gate.\nYou can see the truth tables for Not and NAnd gates",
 			"table": "res://UI/Tables/nandnottable.png",
 			"tableScale": {"x": 0.2, "y": 0.2},
 			"minScore": 1,
 			"input":{
 				"amount": 1,
-				"labels": ["A"],
+				"labels": ["in"],
 				"tests":[
 					[true],
 					[false]
@@ -17,6 +17,7 @@
 			},
 			"output":{
 				"amount": 1,
+				"labels": ["out"],
 				"results":[
 					[false],
 					[true]
@@ -26,7 +27,7 @@
 		}, {
 			"id": 1,
 			"name": "Level 2: And",
-			"description": "Create And from NAnd and Not",
+			"description": "Create the And gate that only return true when both inputs are true using the Not and NAnd gate.",
 			"table": "res://UI/Tables/andtable.png",
 			"tableScale": {"x": 0.2, "y": 0.2},
 			"minScore": 2,
@@ -42,6 +43,7 @@
 			},
 			"output":{
 				"amount": 1,
+				"labels": ["out"],
 				"results":[
 					[true],
 					[false],
@@ -53,7 +55,7 @@
 		}, {
 			"id": 2,
 			"name": "Level 3: Or",
-			"description": "Create Or",
+			"description": "Create the Or gate that return true when either inputs are true using the gates you previously made",
 			"table": "res://UI/Tables/ortable.png",
 			"tableScale": {"x": 0.2, "y": 0.2},
 			"minScore": 3,
@@ -69,6 +71,7 @@
 			},
 			"output":{
 				"amount": 1,
+				"labels": ["out"],
 				"results":[
 					[true],
 					[true],
@@ -80,7 +83,7 @@
 		}, {
 			"id": 3,
 			"name": "Level 4: NOr",
-			"description": "Create NOr",
+			"description": "Create the NOr that return the opposite of the Or gate",
 			"table": "res://UI/Tables/nortable.png",
 			"tableScale": {"x": 0.2, "y": 0.2},
 			"minScore": 4,
@@ -96,6 +99,7 @@
 			},
 			"output":{
 				"amount": 1,
+				"labels": ["out"],
 				"results":[
 					[false],
 					[false],
@@ -107,7 +111,7 @@
 		}, {
 			"id": 4,
 			"name": "Level 5: XOr",
-			"description": "Create XOr",
+			"description": "Create the XOr gate that return true when only one input is but not both",
 			"table": "res://UI/Tables/xortable.png",
 			"tableScale": {"x": 0.2, "y": 0.2},
 			"minScore": 4,
@@ -123,6 +127,7 @@
 			},
 			"output":{
 				"amount": 1,
+				"labels": ["out"],
 				"results":[
 					[false],
 					[true],
@@ -131,11 +136,10 @@
 				]
 			},
 			"nodeAvailable": [true, true, true, true, true]
-		},
-		{
+		}, {
 			"id": 5,
 			"name": "Level 6: NXOr",
-			"description": "Create NXOr",
+			"description": "Create the NOr that return the opposite of the XOr gate",
 			"table": "res://UI/Tables/xnortable.png",
 			"tableScale": {"x": 0.2, "y": 0.2},
 			"minScore": 5,
@@ -151,6 +155,7 @@
 			},
 			"output":{
 				"amount": 1,
+				"labels": ["out"],
 				"results":[
 					[true],
 					[false],
@@ -159,14 +164,13 @@
 				]
 			},
 			"nodeAvailable": [true, true, true, true, true, true]
-		},
-		{
+		}, {
 			"id": 6,
 			"name": "Level 7: Mux",
-			"description": "Create Multiplexor",
-			"table": "res://UI/Tables/xnortable.png",
+			"description": "Create the Multiplexor that return A when the selector(sel) is true but B otherwise",
+			"table": "res://UI/Tables/muxtable.png",
 			"tableScale": {"x": 0.2, "y": 0.2},
-			"minScore": 7,
+			"minScore": 8,
 			"input":{
 				"amount": 3,
 				"labels": ["A", "B", "Sel"],
@@ -179,6 +183,7 @@
 			},
 			"output":{
 				"amount": 1,
+				"labels": ["out"],
 				"results":[
 					[true],
 					[false],
@@ -187,17 +192,16 @@
 				]
 			},
 			"nodeAvailable": [true, true, true, true, true, true, true]
-		},
-		{
+		}, {
 			"id": 7,
-			"name": "Level 8: DeMux",
-			"description": "Create Demultiplexor",
-			"table": "res://UI/Tables/xortable.png",
+			"name": "Level 8: DMux",
+			"description": "Create Demultiplexor that return the input in A when the selector is true but in B otherwise",
+			"table": "res://UI/Tables/dmuxtable.png",
 			"tableScale": {"x": 0.2, "y": 0.2},
-			"minScore": 7,
+			"minScore": 8,
 			"input":{
 				"amount": 2,
-				"labels": ["A", "Sel"],
+				"labels": ["in", "Sel"],
 				"tests":[
 					[true, true],
 					[true, false],
@@ -207,6 +211,7 @@
 			},
 			"output":{
 				"amount": 2,
+				"labels": ["A", "B"],
 				"results":[
 					[true, false],
 					[false, true],

@@ -63,8 +63,6 @@ func fillLevels():
 		if saveData.unlockedLevels[level.id]:
 			var btn = btnScene.instantiate()
 			btn.init(self, level)
-			#var control = Control.new()
-			#control.add_child(btn)
 			$MainMenu/LevelsScroll/Grid.add_child(btn)
 
 func playMusic():
