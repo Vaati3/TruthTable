@@ -8,10 +8,5 @@
 script = ExtResource("2_3nbnd")
 isNot = false
 
-[node name="TextureRect" parent="." index="3"]
-offset_left = 74.0
-offset_top = 63.0
-offset_right = 169.0
-offset_bottom = 157.0
-scale = Vector2(0.75, 0.75)
+[node name="TextureRect" parent="Panel" index="0"]
 texture = ExtResource("3_rh7h3")

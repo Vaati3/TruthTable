@@ -42,6 +42,8 @@ func startLevel(data):
 func _ready():
 	inputNode = preload("res://Nodes/IO/InputNode.tscn").instantiate()
 	outputNode = preload("res://Nodes/IO/OutputNode.tscn").instantiate()
+	inputNode.z_index = -100
+	outputNode.z_index = -100
 	
 	add_child(inputNode)
 	add_child(outputNode)
@@ -71,6 +73,7 @@ func moveScreen(relative):
 
 func addNode(node : BaseNode):
 	add_child(node)
+	node.z_index = -100
 	nodeList.append(node)
 	
 	node.position = Vector2(300, 400)

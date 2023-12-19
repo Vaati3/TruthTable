@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4g86272475gt"]
+[gd_scene load_steps=4 format=3 uid="uid://c4g86272475gt"]
 
+[ext_resource type="Theme" uid="uid://d04drx884amfo" path="res://UI/Themes/Button.tres" id="1_25sjs"]
 [ext_resource type="Script" path="res://UI/MainMenu/LevelButton.gd" id="1_esv00"]
 [ext_resource type="AudioStream" uid="uid://eomw8em1sogd" path="res://Sounds/button.mp3" id="2_u62mo"]
 
@@ -8,6 +9,7 @@ custom_minimum_size = Vector2(200, 150)
 offset_right = 8.0
 offset_bottom = 8.0
 scale = Vector2(1.4725, 2.07107)
+theme = ExtResource("1_25sjs")
 script = ExtResource("1_esv00")
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]

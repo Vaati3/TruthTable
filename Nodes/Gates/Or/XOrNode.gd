@@ -6,10 +6,10 @@ var state : bool = false
 
 func _ready():
 	if isNot:
-		type = NodeType.NOr
+		type = NodeType.XNOr
 		$Panel/TextureRect.texture = load("res://Nodes/Gates/Or/xnor.png")
 	else:
-		type = NodeType.Or
+		type = NodeType.XOr
 	nbInputs = 2
 	nbOutputs = 1
 	super()

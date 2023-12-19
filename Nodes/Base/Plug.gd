@@ -97,10 +97,12 @@ func _drop_data(_pos, data):
 		isLinked = true
 		linkPos = getMiddle(linked.global_position - global_position, linked.size, linked.scale)
 		linked.allLink.append(self)
+		node.z_index = linked.node.z_index - 1
 	else:
 		linked.isLinked = true
 		isLinked = false
 		allLink.append(linked)
+		linked.node.z_index = node.z_index - 1
 	
 	node.updateNode()
 

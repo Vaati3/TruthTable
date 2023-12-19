@@ -26,7 +26,7 @@ func save():
 func loadSave():
 	if not FileAccess.file_exists("user://save.save"):
 		for i in range(data.levels.size()):
-			saveData.unlockedLevels.append(true)# !! for testing purpose CHANGE TO FALSE !!
+			saveData.unlockedLevels.append(false)
 			saveData.scoreList.append(0)
 		saveData.unlockedLevels[0] = true
 		save()
@@ -74,6 +74,9 @@ func _ready():
 		loadSave()
 		fillLevels()
 		playMusic()
+		var i = saveData.unlockedLevels.size() - 1
+		while(not saveData.unlockedLevels[i]): i -= 1
+		selectLevel(data.levels[i])
 
 func selectLevel(level):
 	$MainMenu/DescriptionPanel/Label.text = level.name

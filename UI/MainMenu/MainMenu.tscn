@@ -1,14 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://dmnh3uxk6hlaj"]
+[gd_scene load_steps=12 format=3 uid="uid://dmnh3uxk6hlaj"]
 
 [ext_resource type="Script" path="res://UI/MainMenu/MainMenu.gd" id="1_2q6v6"]
 [ext_resource type="PackedScene" uid="uid://sryd043ysm2c" path="res://UI/GameMenu/GameMenu.tscn" id="2_1v01p"]
 [ext_resource type="Texture2D" uid="uid://cesgnjnyuwhbr" path="res://Nodes/Gates/And/nandIcon.png" id="2_mu6m2"]
 [ext_resource type="Theme" uid="uid://80hoaimwssja" path="res://UI/Themes/RightCornerButton.tres" id="3_5axtw"]
 [ext_resource type="Theme" uid="uid://b7hm4jkruajuu" path="res://UI/Themes/LeftCornerButton.tres" id="3_iedrr"]
+[ext_resource type="Theme" uid="uid://d04drx884amfo" path="res://UI/Themes/Button.tres" id="3_ngbgt"]
 [ext_resource type="Texture2D" uid="uid://c50uu6wy88ik2" path="res://UI/Icons/back.svg" id="4_hsfuk"]
 [ext_resource type="Texture2D" uid="uid://6jg3dywoqtid" path="res://UI/Icons/check.svg" id="5_cjfp2"]
 [ext_resource type="AudioStream" uid="uid://eomw8em1sogd" path="res://Sounds/button.mp3" id="8_udmmx"]
 [ext_resource type="PackedScene" uid="uid://17ckr38omtt0" path="res://UI/MainMenu/VolumeSlider.tscn" id="9_rg8mx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jmef2"]
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -62,16 +69,19 @@ alignment = 1
 [node name="PlayButton" type="Button" parent="MainMenu/Menu"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+theme = ExtResource("3_ngbgt")
 text = "Play"
 
 [node name="OptionButton" type="Button" parent="MainMenu/Menu"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+theme = ExtResource("3_ngbgt")
 text = "Options"
 
 [node name="QuitButton" type="Button" parent="MainMenu/Menu"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+theme = ExtResource("3_ngbgt")
 text = "Quit"
 
 [node name="OptionMenu" type="Panel" parent="MainMenu"]
@@ -151,6 +161,7 @@ offset_left = 109.0
 offset_top = 63.0
 offset_right = 609.0
 offset_bottom = 563.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jmef2")
 
 [node name="Label" type="Label" parent="MainMenu/DescriptionPanel"]
 layout_mode = 0

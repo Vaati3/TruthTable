@@ -16,8 +16,8 @@ var inputs : Array[Plug] = []
 var outputs : Array[Plug] = []
 
 var inputPlugOrigin : Vector2 = Vector2(20, -20)
-var outputPlugOrigin : Vector2 = Vector2(20, 180)
-var plugOffset : int = 75
+var outputPlugOrigin : Vector2 = Vector2(20, 130)
+var plugOffset : int = 95
 
 var canRemove : bool = true
 
