@@ -11,8 +11,7 @@ func initVerify(input:InputNode, output:OutputNode, data):
 	outputNode = output
 	levelData = data
 	
-	$RichTextLabel.clear()
-	$RichTextLabel.append_text(levelData.name)
+	$Label.text = levelData.name.replace("\n", " ")
 	
 	for test in $TestBox.get_children():
 		test.queue_free()

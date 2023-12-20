@@ -10,6 +10,8 @@ offset_right = 8.0
 offset_bottom = 8.0
 scale = Vector2(1.4725, 2.07107)
 theme = ExtResource("1_25sjs")
+toggle_mode = true
+text_overrun_behavior = 4
 script = ExtResource("1_esv00")
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]

@@ -79,11 +79,13 @@ func _ready():
 		selectLevel(data.levels[i])
 
 func selectLevel(level):
-	$MainMenu/DescriptionPanel/Label.text = level.name
+	if selectedLevel:
+		$MainMenu/LevelsScroll/Grid.get_children()[selectedLevel.id].unselect()
+	$MainMenu/DescriptionPanel/Label.text = level.name.replace("\n", " ")
 	$MainMenu/DescriptionPanel/DescriptionText.clear()
 	$MainMenu/DescriptionPanel/DescriptionText.append_text(level.description)
-	$MainMenu/DescriptionPanel/table.texture = load(level.table)
-	$MainMenu/DescriptionPanel/table.scale = Vector2(level.tableScale.x, level.tableScale.y)
+	$MainMenu/DescriptionPanel/Table.texture = load(level.table)
+	$MainMenu/DescriptionPanel/Table.scale = Vector2(level.tableScale.x, level.tableScale.y)
 	$MainMenu/DescriptionPanel/ScoreText.clear()
 	$MainMenu/DescriptionPanel/ScoreText.append_text("Can be done using only " + str(level.minScore) + " NAnd gates\n")
 	if saveData.scoreList[level.id] > 0:

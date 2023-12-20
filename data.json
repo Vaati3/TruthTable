@@ -2,10 +2,10 @@
 	"levels" :[
 		{
 			"id": 0,
-			"name": "Level 1: Not",
+			"name": "Level 1:\nNot",
 			"description": "Create the Not Gate that return the opposite of the input using the provided NAnd gate.\nYou can see the truth tables for Not and NAnd gates",
 			"table": "res://UI/Tables/nandnottable.png",
-			"tableScale": {"x": 0.2, "y": 0.2},
+			"tableScale": {"x": 0.22, "y": 0.22},
 			"minScore": 1,
 			"input":{
 				"amount": 1,
@@ -26,10 +26,10 @@
 			"nodeAvailable": [true]
 		}, {
 			"id": 1,
-			"name": "Level 2: And",
+			"name": "Level 2:\nAnd",
 			"description": "Create the And gate that only return true when both inputs are true using the Not and NAnd gate.",
 			"table": "res://UI/Tables/andtable.png",
-			"tableScale": {"x": 0.2, "y": 0.2},
+			"tableScale": {"x": 0.3, "y": 0.3},
 			"minScore": 2,
 			"input":{
 				"amount": 2,
@@ -54,10 +54,10 @@
 			"nodeAvailable": [true, true]
 		}, {
 			"id": 2,
-			"name": "Level 3: Or",
+			"name": "Level 3:\nOr",
 			"description": "Create the Or gate that return true when either inputs are true using the gates you previously made",
 			"table": "res://UI/Tables/ortable.png",
-			"tableScale": {"x": 0.2, "y": 0.2},
+			"tableScale": {"x": 0.3, "y": 0.3},
 			"minScore": 3,
 			"input":{
 				"amount": 2,
@@ -82,10 +82,10 @@
 			"nodeAvailable": [true, true, true]
 		}, {
 			"id": 3,
-			"name": "Level 4: NOr",
+			"name": "Level 4:\nNOr",
 			"description": "Create the NOr that return the opposite of the Or gate",
 			"table": "res://UI/Tables/nortable.png",
-			"tableScale": {"x": 0.2, "y": 0.2},
+			"tableScale": {"x": 0.3, "y": 0.3},
 			"minScore": 4,
 			"input":{
 				"amount": 2,
@@ -110,10 +110,10 @@
 			"nodeAvailable": [true, true, true, true]
 		}, {
 			"id": 4,
-			"name": "Level 5: XOr",
+			"name": "Level 5:\nXOr",
 			"description": "Create the XOr gate that return true when only one input is but not both",
 			"table": "res://UI/Tables/xortable.png",
-			"tableScale": {"x": 0.2, "y": 0.2},
+			"tableScale": {"x": 0.3, "y": 0.3},
 			"minScore": 4,
 			"input":{
 				"amount": 2,
@@ -138,10 +138,10 @@
 			"nodeAvailable": [true, true, true, true, true]
 		}, {
 			"id": 5,
-			"name": "Level 6: XNOr",
+			"name": "Level 6:\nXNOr",
 			"description": "Create the XNOr that return the opposite of the XOr gate",
 			"table": "res://UI/Tables/xnortable.png",
-			"tableScale": {"x": 0.2, "y": 0.2},
+			"tableScale": {"x": 0.3, "y": 0.3},
 			"minScore": 5,
 			"input":{
 				"amount": 2,
@@ -166,10 +166,10 @@
 			"nodeAvailable": [true, true, true, true, true, true]
 		}, {
 			"id": 6,
-			"name": "Level 7: Mux",
+			"name": "Level 7:\nMux",
 			"description": "Create the Multiplexor that return A when the selector(sel) is true but B otherwise",
 			"table": "res://UI/Tables/muxtable.png",
-			"tableScale": {"x": 0.2, "y": 0.2},
+			"tableScale": {"x": 0.3, "y": 0.3},
 			"minScore": 8,
 			"input":{
 				"amount": 3,
@@ -191,13 +191,13 @@
 					[true]
 				]
 			},
-			"nodeAvailable": [true, true, true, true, true, true, true]
+			"nodeAvailable": [true, true, true, true, true, true, true, true]
 		}, {
 			"id": 7,
-			"name": "Level 8: DMux",
+			"name": "Level 8:\nDMux",
 			"description": "Create Demultiplexor that return the input in A when the selector is true but in B otherwise",
 			"table": "res://UI/Tables/dmuxtable.png",
-			"tableScale": {"x": 0.2, "y": 0.2},
+			"tableScale": {"x": 0.3, "y": 0.3},
 			"minScore": 8,
 			"input":{
 				"amount": 2,
@@ -219,7 +219,7 @@
 					[false, false]
 				]
 			},
-			"nodeAvailable": [true, true, true, true, true, true, true]
+			"nodeAvailable": [true, true, true, true, true, true, true, true]
 		}
 	]
 }
