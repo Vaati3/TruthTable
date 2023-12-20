@@ -5,7 +5,7 @@ class_name InputNode
 @export var values: Array = []
 
 var btnList = []
-var toggleBtnOffset: int = 95
+var toggleBtnOffset: int = 100
 
 func createToggleBtn(i:int, btnScene):
 	var btn = btnScene.instantiate()
@@ -24,16 +24,18 @@ func loadLevel(data):
 	btnList.clear()
 
 	nbOutputs = data.amount
+	inputPlugOrigin.x = 25
+	outputPlugOrigin.x = 25
 	values = data.tests[0].duplicate()
 	
 	var plugScene = preload(("res://Nodes/Base/Plug.tscn"))
 	var btnScene = preload(("res://Nodes/IO/ToggleButton.tscn"))
+	scaleNode()
 	for i in range(nbOutputs):
 		createConection(true, plugScene, i)
 		createToggleBtn(i, btnScene)
 		outputs[i].setColour(values[i])
 		outputs[i].setLabel(data.labels[i])
-	scaleNode()
 
 func _ready():
 	type = NodeType.Input

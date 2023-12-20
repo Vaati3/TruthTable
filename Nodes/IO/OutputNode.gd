@@ -11,14 +11,16 @@ func loadLevel(data):
 	inputs.clear()
 	
 	nbInputs = data.amount
+	inputPlugOrigin.x = 25
+	outputPlugOrigin.x = 25
 	outputData = data
 	
 	var plugScene = preload(("res://Nodes/Base/Plug.tscn"))
+	scaleNode()
 	for i in range(nbInputs):
 		values.append(false)
 		createConection(false, plugScene, i)
 		inputs[i].setLabel(data.labels[i])
-	scaleNode()
 
 func _ready():
 	type = NodeType.Output

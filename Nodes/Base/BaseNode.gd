@@ -15,8 +15,8 @@ var nbOutputs : int = 0
 var inputs : Array[Plug] = []
 var outputs : Array[Plug] = []
 
-var inputPlugOrigin : Vector2 = Vector2(20, -20)
-var outputPlugOrigin : Vector2 = Vector2(20, 130)
+var inputPlugOrigin : Vector2 = Vector2(25, -20)
+var outputPlugOrigin : Vector2 = Vector2(25, 150)
 var plugOffset : int = 95
 
 var canRemove : bool = true
@@ -37,6 +37,11 @@ func createConection(isOutput: bool, plugScene, i):
 func scaleNode():
 	var n:int = max(nbInputs, nbOutputs)
 	
+	if nbInputs == 1:
+		inputPlugOrigin.x += plugOffset - 25
+	if nbOutputs == 1:
+		print(type)
+		outputPlugOrigin.x += plugOffset - 25
 	if n > 2:
 		$Panel.size.x += (n - 2) * (plugOffset)
 
@@ -44,12 +49,12 @@ func _ready():
 	if not canRemove:
 		$Button.visible = false
 	$Panel/RichTextLabel.append_text("[center]" + NodeType.keys()[type] + "[/center]")
+	scaleNode()
 	var plugScene = preload(("res://Nodes/Base/Plug.tscn"))
 	for i in range(nbInputs):
 		createConection(false, plugScene, i)
 	for j in range(nbOutputs):
 		createConection(true, plugScene, j)
-	scaleNode()
 
 func updateNode():
 	var index : int = 0

@@ -9,10 +9,11 @@ amount = 2
 values = [true, false]
 
 [node name="RichTextLabel" parent="Panel" index="1"]
-offset_left = 46.0
-offset_top = -75.0
-offset_right = 147.0
-offset_bottom = -18.0
+offset_left = 42.0
+offset_top = -64.5
+offset_right = 217.0
+offset_bottom = -7.5
+theme_override_font_sizes/normal_font_size = 40
 
 [node name="ToggleBox" type="VBoxContainer" parent="." index="2"]
 offset_left = 153.0

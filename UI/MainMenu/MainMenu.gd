@@ -14,7 +14,7 @@ var selectedLevel
 var saveData = {
 	"unlockedLevels": [],
 	"scoreList": [],
-	"options": {"volume": [0.5, 0.5, 0.5], "muted": [false, false, false]}
+	"options": {"volume": [1, 1, 1], "muted": [false, false, false]}
 }
 
 func save():
@@ -155,18 +155,19 @@ func _on_quit_option_pressed():
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		match(state):
-			MenuState.LevelMenu, MenuState.OptionMenu:
-				state = MenuState.StartMenu
-				$MainMenu/LevelsScroll.visible = false
-				$MainMenu/DescriptionPanel.visible = false
-				$MainMenu/Title.visible = true
-				$MainMenu/Menu.visible = true
-			MenuState.GameMenu:
-				GameMenu.visible = false
-				showMainMenu()
-			_:
-				get_tree().quit()
+		get_tree().quit()
+#		match(state):
+#			MenuState.LevelMenu, MenuState.OptionMenu:
+#				state = MenuState.StartMenu
+#				$MainMenu/LevelsScroll.visible = false
+#				$MainMenu/DescriptionPanel.visible = false
+#				$MainMenu/Title.visible = true
+#				$MainMenu/Menu.visible = true
+#			MenuState.GameMenu:
+#				GameMenu.visible = false
+#				showMainMenu()
+#			_:
+#				get_tree().quit()
 
 func _on_gui_input(event):
 	if state == MenuState.GameMenu:

@@ -16,7 +16,7 @@ script = ExtResource("1_3vd4y")
 
 [node name="Panel" type="Panel" parent="."]
 offset_right = 250.0
-offset_bottom = 150.0
+offset_bottom = 175.0
 theme = ExtResource("2_685hj")
 
 [node name="TextureRect" type="TextureRect" parent="Panel"]
@@ -48,10 +48,10 @@ bbcode_enabled = true
 fit_content = true
 
 [node name="Button" type="Button" parent="."]
-offset_left = 202.0
-offset_top = 52.0
-offset_right = 242.0
-offset_bottom = 92.0
+offset_left = 200.0
+offset_top = 65.0
+offset_right = 240.0
+offset_bottom = 105.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_0hcpw")
 theme_override_styles/hover = SubResource("StyleBoxFlat_0hcpw")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_0hcpw")
