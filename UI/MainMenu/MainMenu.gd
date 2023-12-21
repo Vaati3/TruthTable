@@ -36,9 +36,6 @@ func loadSave():
 	var error = json.parse(saveFile.get_as_text())
 	if error == OK:
 		saveData = json.data
-		for child in $MainMenu/OptionMenu.get_children():
-			if child is VolumeSlider:
-				child.loadSave(self)
 
 func readLevelData() -> bool:
 	if not FileAccess.file_exists("res://data.json"):
@@ -66,6 +63,9 @@ func fillLevels():
 			$MainMenu/LevelsScroll/Grid.add_child(btn)
 
 func playMusic():
+	for child in $MainMenu/OptionMenu.get_children():
+		if child is VolumeSlider:
+			child.loadSave(self)
 	$Music.stream = load("res://Sounds/music" + str(randi_range(1, 3)) + ".mp3")
 	$Music.play()
 
