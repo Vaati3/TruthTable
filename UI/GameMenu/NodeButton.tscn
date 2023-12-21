@@ -37,6 +37,7 @@ stretch_mode = 2
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_la45a")
+volume_db = 20.0
 bus = &"SFX"
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

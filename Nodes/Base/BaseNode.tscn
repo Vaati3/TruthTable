@@ -52,6 +52,7 @@ theme = ExtResource("3_1de8m")
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="Button"]
 stream = ExtResource("3_0s4nq")
+volume_db = 20.0
 bus = &"SFX"
 
 [node name="TextureRect" type="TextureRect" parent="Button"]

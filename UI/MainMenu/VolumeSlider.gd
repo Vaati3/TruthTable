@@ -9,7 +9,6 @@ var busIndex : int = 0
 var menuRef : MainMenu
 
 func setVolume(volume):
-	print(volume)
 	AudioServer.set_bus_volume_db(busIndex, linear_to_db(volume))
 
 func loadSave(menu):
