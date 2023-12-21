@@ -5,15 +5,15 @@ class_name InputNode
 @export var values: Array = []
 
 var btnList = []
-var toggleBtnOffset: int = 100
+const toggleBtnOffset: int = 120
 
 func createToggleBtn(i:int, btnScene):
 	var btn = btnScene.instantiate()
 	btn.init(self, i, values[i])
 	add_child(btn)
 	btnList.append(btn)
-	btn.position.x = outputPlugOrigin.x + (plugOffset * i) + btn.size.x / 2
-	btn.position.y = outputPlugOrigin.y - toggleBtnOffset/2
+	btn.position.x = outputPlugOrigin.x + (plugOffset * i) + 15
+	btn.position.y = outputPlugOrigin.y - toggleBtnOffset / 2
 
 func loadLevel(data):
 	for output in outputs:

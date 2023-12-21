@@ -14,6 +14,7 @@ func loadLevel(data):
 	inputPlugOrigin.x = 25
 	outputPlugOrigin.x = 25
 	outputData = data
+	values.clear()
 	
 	var plugScene = preload(("res://Nodes/Base/Plug.tscn"))
 	scaleNode()
@@ -32,5 +33,4 @@ func _ready():
 func updateAll(_index : int) -> bool:
 	for i in range(nbInputs):
 		values[i] = inputs[i].updateLink()
-	#add complete level logic
 	return false

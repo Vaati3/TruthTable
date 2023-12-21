@@ -14,7 +14,7 @@ var selectedLevel
 var saveData = {
 	"unlockedLevels": [],
 	"scoreList": [],
-	"options": {"volume": [1, 1, 1], "muted": [false, false, false]}
+	"options": {"volume": [0.5, 0.5, 0.5], "muted": [false, false, false]}
 }
 
 func save():

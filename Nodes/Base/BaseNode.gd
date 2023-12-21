@@ -40,7 +40,6 @@ func scaleNode():
 	if nbInputs == 1:
 		inputPlugOrigin.x += plugOffset - 25
 	if nbOutputs == 1:
-		print(type)
 		outputPlugOrigin.x += plugOffset - 25
 	if n > 2:
 		$Panel.size.x += (n - 2) * (plugOffset)
