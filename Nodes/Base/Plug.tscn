@@ -20,6 +20,7 @@ bus = &"SFX"
 
 [node name="AudioPop" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_stfub")
+volume_db = 10.0
 bus = &"SFX"
 
 [node name="Label" type="Label" parent="."]

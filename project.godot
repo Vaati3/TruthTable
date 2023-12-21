@@ -15,6 +15,10 @@ run/main_scene="res://UI/MainMenu/MainMenu.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.png"
 
+[audio]
+
+buses/default_bus_layout="res://BusLayout.tres"
+
 [debug]
 
 gdscript/warnings/integer_division=0
