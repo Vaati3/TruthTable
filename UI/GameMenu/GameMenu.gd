@@ -8,7 +8,7 @@ var levelData
 var nodeList : Array[BaseNode] = []
 var isSliderOut : bool = false
 var sliderMoving : bool = false
-var sliderSpeed : int = 6
+var sliderSpeed : int = 7
 
 #maybe add save system
 func clearGame():
@@ -77,6 +77,10 @@ func addNode(node : BaseNode):
 	nodeList.append(node)
 	
 	node.position = Vector2(300, 400)
+
+func removeNode(node : BaseNode):
+	$Audio.play(0.24)
+	nodeList.erase(node)
 
 func toggleVisible(isVisible:bool):
 	$Panel/Scroll/HBoxContainer.visible = isVisible
