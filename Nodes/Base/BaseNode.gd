@@ -19,6 +19,8 @@ var inputPlugOrigin : Vector2 = Vector2(25, -20)
 var outputPlugOrigin : Vector2 = Vector2(25, 150)
 var plugOffset : int = 95
 
+var panelSizeX : int
+
 var canRemove : bool = true
 
 func createConection(isOutput: bool, plugScene, i):
@@ -35,6 +37,7 @@ func createConection(isOutput: bool, plugScene, i):
 		inputs.append(plug)
 
 func scaleNode():
+	$Panel.size.x = panelSizeX
 	var n:int = max(nbInputs, nbOutputs)
 	
 	if nbInputs == 1:
@@ -45,6 +48,7 @@ func scaleNode():
 		$Panel.size.x += (n - 2) * (plugOffset)
 
 func _ready():
+	panelSizeX = $Panel.size.x
 	if not canRemove:
 		$Button.visible = false
 	$Panel/RichTextLabel.append_text("[center]" + NodeType.keys()[type] + "[/center]")
@@ -118,7 +122,6 @@ func _on_button_pressed():
 		for output in outputs:
 			for link in output.allLink:
 				link.reset()
-		
 		parent.removeNode(self)
 		queue_free()
 

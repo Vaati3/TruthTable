@@ -16,8 +16,9 @@ func clearGame():
 		node.queue_free()
 	nodeList.clear()
 	
-	for child in $Panel/Scroll/HBoxContainer.get_children():
+	for child in $NodePanel/Scroll/HBoxContainer.get_children():
 		child.queue_free()
+	$SlidingPanel/DescriptionText.clear()
 
 func fillNodesBtn():
 	var btnScene = preload(("res://UI/GameMenu/NodeButton.tscn"))
@@ -27,7 +28,13 @@ func fillNodesBtn():
 			btn.init(self, BaseNode.NodeType.keys()[i+3], BaseNode.NodeType.values()[i+3])
 			var control = Control.new()
 			control.add_child(btn)
-			$Panel/Scroll/HBoxContainer.add_child(control)
+			$NodePanel/Scroll/HBoxContainer.add_child(control)
+
+func fillDesc():
+	$SlidingPanel/Label.text = levelData.name.replace("\n", " ")
+	$SlidingPanel/DescriptionText.append_text(levelData.description)
+	$SlidingPanel/Table.texture = load(levelData.table)
+	$SlidingPanel/Table.scale = Vector2(levelData.tableScale.x, levelData.tableScale.y)
 
 func startLevel(data):
 	clearGame()
@@ -37,6 +44,7 @@ func startLevel(data):
 	outputNode.loadLevel(data.output)
 	levelData = data
 	fillNodesBtn()
+	fillDesc()
 	$VerifyPanel.initVerify(inputNode, outputNode, data)
 
 func _ready():
@@ -49,20 +57,7 @@ func _ready():
 	add_child(outputNode)
 	inputNode.position = Vector2(300, 100)
 	outputNode.position = Vector2(300, 800)
-
-func _process(_delta):
-	if sliderMoving:
-		var screenheight = get_viewport_rect().size.y
-		if isSliderOut:
-			$Panel.position.y -= sliderSpeed
-			if $Panel.position.y <= screenheight - $Panel.size.y:
-				$Panel.position.y = screenheight - $Panel.size.y
-				sliderMoving = false
-		else:
-			$Panel.position.y += sliderSpeed
-			if $Panel.position.y >= screenheight:
-				$Panel.position.y = screenheight
-				sliderMoving = false
+	
 
 func moveScreen(relative):
 	inputNode.position += relative
@@ -83,7 +78,7 @@ func removeNode(node : BaseNode):
 	nodeList.erase(node)
 
 func toggleVisible(isVisible:bool):
-	$Panel/Scroll/HBoxContainer.visible = isVisible
+	$NodePanel/Scroll/HBoxContainer.visible = isVisible
 	$ValidateButton.visible = isVisible
 	inputNode.visible = isVisible
 	outputNode.visible = isVisible
@@ -98,14 +93,6 @@ func _on_button_pressed():
 	$Audio.play(0.24)
 	toggleVisible(false)
 	$VerifyPanel.openAndRunTest()
-
-func _on_slider_button_pressed():
-	$Audio.play(0.24)
-	sliderMoving = true
-	if isSliderOut:
-		isSliderOut = false
-	else:
-		isSliderOut = true
 
 func updateScore():
 	var parent = get_parent()
@@ -122,4 +109,4 @@ func toMainMenu():
 	
 	sliderMoving = false
 	isSliderOut = false
-	$Panel.position.y = get_viewport_rect().size.y
+	$NodePanel.reset()
