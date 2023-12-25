@@ -174,3 +174,6 @@ func _on_gui_input(event):
 	if state == MenuState.GameMenu:
 		if event is InputEventScreenDrag:
 			$GameMenu.moveScreen(event.relative)
+
+func _on_music_finished():
+	playMusic()

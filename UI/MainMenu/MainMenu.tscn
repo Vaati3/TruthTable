@@ -264,3 +264,4 @@ bus = &"Music"
 [connection signal="pressed" from="MainMenu/OptionMenu/QuitOption" to="." method="_on_quit_option_pressed"]
 [connection signal="pressed" from="MainMenu/DescriptionPanel/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MainMenu/DescriptionPanel/Button" to="." method="_on_button_pressed"]
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]
