@@ -10,7 +10,6 @@ var isSliderOut : bool = false
 var sliderMoving : bool = false
 var sliderSpeed : int = 7
 
-#maybe add save system
 func clearGame():
 	for node in nodeList:
 		node.queue_free()
@@ -21,7 +20,7 @@ func clearGame():
 	$SlidingPanel/DescriptionText.clear()
 
 func fillNodesBtn():
-	var btnScene = preload(("res://UI/GameMenu/NodeButton.tscn"))
+	var btnScene = preload("res://UI/GameMenu/NodeButton.tscn")
 	for i in range(levelData.nodeAvailable.size()):
 		if levelData.nodeAvailable[i]:
 			var btn = btnScene.instantiate()
@@ -36,7 +35,7 @@ func fillDesc():
 	$SlidingPanel/Table.texture = load(levelData.table)
 	$SlidingPanel/Table.scale = Vector2(levelData.tableScale.x, levelData.tableScale.y)
 
-func startLevel(data):
+func startLevel(data, showTutorial):
 	clearGame()
 	visible = true
 	toggleVisible(true)
@@ -46,6 +45,8 @@ func startLevel(data):
 	fillNodesBtn()
 	fillDesc()
 	$VerifyPanel.initVerify(inputNode, outputNode, data)
+	if showTutorial:
+		get_tree().root.add_child(preload("res://UI/GameMenu/TutorialOverlay.tscn").instantiate())
 
 func _ready():
 	inputNode = preload("res://Nodes/IO/InputNode.tscn").instantiate()
@@ -55,8 +56,8 @@ func _ready():
 	
 	add_child(inputNode)
 	add_child(outputNode)
-	inputNode.position = Vector2(300, 100)
-	outputNode.position = Vector2(300, 800)
+	inputNode.position = Vector2(250, 250)
+	outputNode.position = Vector2(250, 750)
 	
 
 func moveScreen(relative):

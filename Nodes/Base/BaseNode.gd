@@ -16,7 +16,7 @@ var inputs : Array[Plug] = []
 var outputs : Array[Plug] = []
 
 var inputPlugOrigin : Vector2 = Vector2(25, -20)
-var outputPlugOrigin : Vector2 = Vector2(25, 150)
+var outputPlugOrigin : Vector2 = Vector2(25, 130)
 var plugOffset : int = 95
 
 var panelSizeX : int

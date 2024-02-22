@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=3 uid="uid://bamjhk4nnxfml"]
+
+[ext_resource type="Script" path="res://UI/GameMenu/TutorialOverlay.gd" id="1_22li3"]
+
+[node name="TutorialOverlay" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.835294)
+script = ExtResource("1_22li3")
+
+[node name="description" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = 70.0
+offset_right = 722.0
+offset_bottom = 154.0
+theme_override_font_sizes/font_size = 22
+text = "You can see this level description by tapping the button above"
+horizontal_alignment = 1
+
+[node name="outputnode" type="Label" parent="."]
+visible = false
+offset_left = -5.0
+offset_top = 643.0
+offset_right = 715.0
+offset_bottom = 745.0
+scale = Vector2(1.0019, 1)
+theme_override_font_sizes/font_size = 22
+text = "This is the output node connect it to the input node 
+by drag and droping from the pins
+The goal is to reproduce the logic gate in the level description"
+horizontal_alignment = 1
+
+[node name="inputnode" type="Label" parent="."]
+offset_left = -3.0
+offset_top = 428.0
+offset_right = 717.0
+offset_bottom = 530.0
+theme_override_font_sizes/font_size = 22
+text = "This is the input node connect it to the input node 
+You can toggle the state of the pins by clicking the buttons
+In order to test your solution"
+horizontal_alignment = 1
+
+[node name="morenodes" type="Label" parent="."]
+visible = false
+offset_left = -2.0
+offset_top = 1018.0
+offset_right = 718.0
+offset_bottom = 1154.0
+theme_override_font_sizes/font_size = 22
+text = "Add nodes by clicking the button in the middle 
+and select the node you need
+Delete extra node by taping the X button
+When you are done check your solution with the check button"
+horizontal_alignment = 1
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

@@ -47,3 +47,7 @@ func _on_pressed():
 			var node = preload(("res://Nodes/Gates/Or/XOrNode.tscn")).instantiate()
 			if nodeType == BaseNode.NodeType.XNOr: node.isNot = true
 			parentGui.addNode(node)
+		BaseNode.NodeType.Mux:
+			parentGui.addNode(preload(("res://Nodes/Gates/Mux/MuxNode.tscn")).instantiate())
+		BaseNode.NodeType.DMux:
+			parentGui.addNode(preload(("res://Nodes/Gates/DMux/DMuxNode.tscn")).instantiate())

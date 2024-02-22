@@ -12,6 +12,7 @@ var state : MenuState =  MenuState.StartMenu
 var selectedLevel
 
 var saveData = {
+	"tutorial": true,
 	"unlockedLevels": [],
 	"scoreList": [],
 	"options": {"volume": [0.5, 0.5, 0.5], "muted": [false, false, false]}
@@ -29,6 +30,7 @@ func loadSave():
 			saveData.unlockedLevels.append(false)
 			saveData.scoreList.append(0)
 		saveData.unlockedLevels[0] = true
+		saveData.tutorial = true
 		save()
 	
 	var saveFile = FileAccess.open("user://save.save", FileAccess.READ)
@@ -106,6 +108,7 @@ func updateScore(nodeList : Array[BaseNode]):
 		else:
 			score += saveData.scoreList[node.type - 4]
 	saveData.scoreList[selectedLevel.id] = score
+	saveData.tutorial = false
 	save()
 
 func showMainMenu():
@@ -122,6 +125,7 @@ func _on_play_button_pressed():
 	$MainMenu/DescriptionPanel.visible = true
 
 func _on_option_button_pressed():
+	$MainMenu/OptionMenu/TutorialCheckbox.button_pressed = saveData.tutorial
 	$Audio.play(0.24)
 	state = MenuState.OptionMenu
 	$MainMenu/Menu.visible = false
@@ -137,7 +141,7 @@ func _on_start_button_pressed():
 	$Audio.play(0.24)
 	$MainMenu.visible = false
 	state = MenuState.GameMenu
-	$GameMenu.startLevel(selectedLevel)
+	$GameMenu.startLevel(selectedLevel, saveData.tutorial)
 
 func _on_button_pressed():
 	$Audio.play(0.24)
@@ -177,3 +181,7 @@ func _on_gui_input(event):
 
 func _on_music_finished():
 	playMusic()
+
+
+func _on_tutorial_checkbox_toggled(button_pressed):
+	saveData.tutorial = button_pressed

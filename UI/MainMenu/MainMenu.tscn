@@ -131,12 +131,22 @@ label = "Sound Effect Volume"
 busName = "SFX"
 index = 2
 
+[node name="TutorialCheckbox" type="CheckBox" parent="MainMenu/OptionMenu"]
+layout_mode = 0
+offset_left = 259.0
+offset_top = 865.0
+offset_right = 485.0
+offset_bottom = 949.0
+theme_override_font_sizes/font_size = 25
+text = "Show Tutorial"
+alignment = 1
+
 [node name="QuitOption" type="Button" parent="MainMenu/OptionMenu"]
 layout_mode = 0
 offset_left = 267.0
-offset_top = 1021.0
+offset_top = 1049.0
 offset_right = 465.0
-offset_bottom = 1116.0
+offset_bottom = 1144.0
 theme = ExtResource("3_ngbgt")
 text = "Quit"
 
@@ -261,6 +271,7 @@ bus = &"Music"
 [connection signal="pressed" from="MainMenu/Menu/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MainMenu/Menu/OptionButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="MainMenu/Menu/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="toggled" from="MainMenu/OptionMenu/TutorialCheckbox" to="." method="_on_tutorial_checkbox_toggled"]
 [connection signal="pressed" from="MainMenu/OptionMenu/QuitOption" to="." method="_on_quit_option_pressed"]
 [connection signal="pressed" from="MainMenu/DescriptionPanel/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MainMenu/DescriptionPanel/Button" to="." method="_on_button_pressed"]

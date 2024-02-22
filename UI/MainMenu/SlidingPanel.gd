@@ -18,7 +18,7 @@ func _ready():
 	$SliderButton.position = buttonPos
 	$SliderButton.rotation = buttonRotation
 
-func _process(delta):
+func _process(_delta):
 	if sliderMoving:
 		if isSliderOut:
 			position += direction * speed
