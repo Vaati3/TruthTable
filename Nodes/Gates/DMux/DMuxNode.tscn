@@ -2,10 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://cc5ocbuexeov5" path="res://Nodes/Base/BaseNode.tscn" id="1_pc3fu"]
 [ext_resource type="Script" path="res://Nodes/Gates/DMux/DMuxNode.gd" id="2_u2i6d"]
-[ext_resource type="Texture2D" uid="uid://dbuvinumhkh77" path="res://Nodes/Gates/Not/not.png" id="3_jq818"]
+[ext_resource type="Texture2D" uid="uid://do0t2m5th3tqt" path="res://Nodes/Gates/DMux/dmuxIcon.png" id="3_5ouqm"]
 
 [node name="DMuxNode" instance=ExtResource("1_pc3fu")]
 script = ExtResource("2_u2i6d")
 
 [node name="TextureRect" parent="Panel" index="0"]
-texture = ExtResource("3_jq818")
+offset_left = -47.0
+offset_top = -73.5
+offset_right = 53.0
+offset_bottom = 70.5
+rotation = 1.58825
+pivot_offset = Vector2(50, 70)
+texture = ExtResource("3_5ouqm")

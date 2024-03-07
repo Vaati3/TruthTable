@@ -24,6 +24,7 @@ horizontal_alignment = 1
 
 [node name="outputnode" type="Label" parent="."]
 visible = false
+layout_mode = 0
 offset_left = -5.0
 offset_top = 643.0
 offset_right = 715.0
@@ -31,11 +32,12 @@ offset_bottom = 745.0
 scale = Vector2(1.0019, 1)
 theme_override_font_sizes/font_size = 22
 text = "This is the output node connect it to the input node 
-by drag and droping from the pins
+by drag and dropping from the pins
 The goal is to reproduce the logic gate in the level description"
 horizontal_alignment = 1
 
 [node name="inputnode" type="Label" parent="."]
+layout_mode = 0
 offset_left = -3.0
 offset_top = 428.0
 offset_right = 717.0
@@ -48,6 +50,7 @@ horizontal_alignment = 1
 
 [node name="morenodes" type="Label" parent="."]
 visible = false
+layout_mode = 0
 offset_left = -2.0
 offset_top = 1018.0
 offset_right = 718.0
@@ -55,7 +58,7 @@ offset_bottom = 1154.0
 theme_override_font_sizes/font_size = 22
 text = "Add nodes by clicking the button in the middle 
 and select the node you need
-Delete extra node by taping the X button
+Delete extra nodes by taping the X button
 When you are done check your solution with the check button"
 horizontal_alignment = 1
 

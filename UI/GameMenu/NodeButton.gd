@@ -21,6 +21,10 @@ func loadTexture():
 			return load("res://Nodes/Gates/Or/xor.png")
 		BaseNode.NodeType.XNOr:
 			return load("res://Nodes/Gates/Or/xnor.png")
+		BaseNode.NodeType.Mux:
+			return load("res://Nodes/Gates/Mux/muxIcon.png")
+		BaseNode.NodeType.DMux:
+			return load("res://Nodes/Gates/DMux/dmuxIcon.png")
 
 func init(gui, nameNode, type):
 	parentGui = gui
