@@ -55,14 +55,14 @@ func readLevelData() -> bool:
 		return false
 
 func fillLevels():
-	for child in $MainMenu/LevelsScroll/Grid.get_children():
+	for child in $MainMenu/LevelSelection/LevelsScroll/Grid.get_children():
 		child.queue_free()
 	var btnScene = preload(("res://UI/MainMenu/LevelButton.tscn"))
 	for level in data.levels:
 		if saveData.unlockedLevels[level.id]:
 			var btn = btnScene.instantiate()
 			btn.init(self, level)
-			$MainMenu/LevelsScroll/Grid.add_child(btn)
+			$MainMenu/LevelSelection/LevelsScroll/Grid.add_child(btn)
 
 func playMusic():
 	for child in $MainMenu/OptionMenu.get_children():
@@ -72,6 +72,8 @@ func playMusic():
 	$Music.play()
 
 func _ready():
+	if OS.get_name() == "HTML5":
+		$MainMenu/Menu/QuitButton.visible = false
 	if readLevelData():
 		loadSave()
 		fillLevels()
@@ -82,18 +84,18 @@ func _ready():
 
 func selectLevel(level):
 	if selectedLevel:
-		$MainMenu/LevelsScroll/Grid.get_children()[selectedLevel.id].unselect()
-	$MainMenu/DescriptionPanel/Label.text = level.name.replace("\n", " ")
-	$MainMenu/DescriptionPanel/DescriptionText.clear()
-	$MainMenu/DescriptionPanel/DescriptionText.append_text(level.description)
-	$MainMenu/DescriptionPanel/Table.texture = load(level.table)
-	$MainMenu/DescriptionPanel/Table.scale = Vector2(level.tableScale.x, level.tableScale.y)
-	$MainMenu/DescriptionPanel/ScoreText.clear()
-	$MainMenu/DescriptionPanel/ScoreText.append_text("Can be done using only " + str(level.minScore) + " NAnd gates\n")
+		$MainMenu/LevelSelection/LevelsScroll/Grid.get_children()[selectedLevel.id].unselect()
+	$MainMenu/LevelSelection/DescriptionPanel/Label.text = level.name.replace("\n", " ")
+	$MainMenu/LevelSelection/DescriptionPanel/DescriptionText.clear()
+	$MainMenu/LevelSelection/DescriptionPanel/DescriptionText.append_text(level.description)
+	$MainMenu/LevelSelection/DescriptionPanel/Table.texture = load(level.table)
+	$MainMenu/LevelSelection/DescriptionPanel/Table.scale = Vector2(level.tableScale.x, level.tableScale.y)
+	$MainMenu/LevelSelection/DescriptionPanel/ScoreText.clear()
+	$MainMenu/LevelSelection/DescriptionPanel/ScoreText.append_text("Can be done using only " + str(level.minScore) + " NAnd gates\n")
 	if saveData.scoreList[level.id] > 0:
-		$MainMenu/DescriptionPanel/ScoreText.append_text("Your best solution used " + str(saveData.scoreList[level.id]) + " NAnd gates")
+		$MainMenu/LevelSelection/DescriptionPanel/ScoreText.append_text("Your best solution used " + str(saveData.scoreList[level.id]) + " NAnd gates")
 	else:
-		$MainMenu/DescriptionPanel/ScoreText.append_text("You have yet to complete this level")
+		$MainMenu/LevelSelection/DescriptionPanel/ScoreText.append_text("You have yet to complete this level")
 	selectedLevel = level
 
 func updateScore(nodeList : Array[BaseNode]):
@@ -121,8 +123,7 @@ func _on_play_button_pressed():
 	state = MenuState.LevelMenu
 	$MainMenu/Menu.visible = false
 	$MainMenu/Title.visible = false
-	$MainMenu/LevelsScroll.visible = true
-	$MainMenu/DescriptionPanel.visible = true
+	$MainMenu/LevelSelection.visible = true
 
 func _on_option_button_pressed():
 	$MainMenu/OptionMenu/TutorialCheckbox.button_pressed = saveData.tutorial
@@ -146,8 +147,7 @@ func _on_start_button_pressed():
 func _on_button_pressed():
 	$Audio.play(0.24)
 	state = MenuState.StartMenu
-	$MainMenu/LevelsScroll.visible = false
-	$MainMenu/DescriptionPanel.visible = false
+	$MainMenu/LevelSelection.visible = false
 	$MainMenu/Title.visible = true
 	$MainMenu/Menu.visible = true
 
@@ -161,18 +161,18 @@ func _on_quit_option_pressed():
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		match(state):
-			MenuState.LevelMenu, MenuState.OptionMenu:
-				state = MenuState.StartMenu
-				$MainMenu/LevelsScroll.visible = false
-				$MainMenu/DescriptionPanel.visible = false
-				$MainMenu/Title.visible = true
-				$MainMenu/Menu.visible = true
-			MenuState.GameMenu:
-				GameMenu.visible = false
-				showMainMenu()
-			_:
-				get_tree().quit()
+		get_tree().quit()
+#		match(state):
+#			MenuState.LevelMenu, MenuState.OptionMenu:
+#				state = MenuState.StartMenu
+#				$MainMenu/LevelSelection.visible = false
+#				$MainMenu/Title.visible = true
+#				$MainMenu/Menu.visible = true
+#			MenuState.GameMenu:
+#				GameMenu.visible = false
+#				showMainMenu()
+#			_:
+#				get_tree().quit()
 
 func _on_gui_input(event):
 	if state == MenuState.GameMenu:

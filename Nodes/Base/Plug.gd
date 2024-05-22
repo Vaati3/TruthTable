@@ -6,6 +6,7 @@ var value : bool = false
 var isInput : bool
 
 var node : BaseNode
+var link : Link
 
 var isLinked : bool = false
 var linked : Plug = null
@@ -33,6 +34,9 @@ func _ready():
 	greenBox.bg_color = Color.DARK_GREEN
 	redBox = get_theme_stylebox("panel").duplicate()
 	redBox.bg_color = Color.DARK_RED
+	
+	link = Link.new(self)
+	node.get_parent().get_parent().get_node("Links").add_child(link)
 
 func _process(_delta):
 	if drawLine:
@@ -40,8 +44,7 @@ func _process(_delta):
 		queue_redraw()
 
 func _draw():
-	if isLinked:
-		draw_line(getMiddle(Vector2(0, 0), size, scale), linkPos, lineColour, 10)
+	link.queue_redraw()
 
 func getMiddle(vector : Vector2, sizes : Vector2, scales : Vector2) -> Vector2:
 	return Vector2(vector.x + (sizes.x * scales.x / 2), vector.y + (sizes.y * scales.y / 2))
@@ -97,13 +100,10 @@ func _drop_data(_pos, data):
 		isLinked = true
 		linkPos = getMiddle(linked.global_position - global_position, linked.size, linked.scale)
 		linked.allLink.append(self)
-		node.z_index = linked.node.z_index - 1
 	else:
 		linked.isLinked = true
 		isLinked = false
 		allLink.append(linked)
-		linked.node.z_index = node.z_index - 1
-	
 	node.updateNode()
 
 func _notification(notification_type):
@@ -115,7 +115,7 @@ func _notification(notification_type):
 					isLinked = false
 					if isInput:
 						reset()
-					queue_redraw()
+					link.queue_redraw()
 
 func updateLink() -> bool:
 	if not isPluged:

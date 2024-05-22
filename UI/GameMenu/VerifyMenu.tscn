@@ -9,45 +9,66 @@
 bg_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
 
 [node name="VerifyPanel" type="Panel"]
-offset_left = 1.0
-offset_top = -1.0
-offset_right = 722.0
-offset_bottom = 1281.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_g1vud")
 script = ExtResource("1_c542l")
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 67.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
 offset_top = 147.0
-offset_right = 667.0
+offset_right = 300.0
 offset_bottom = 247.0
+grow_horizontal = 2
+scale = Vector2(0.997626, 1)
 theme_override_font_sizes/font_size = 40
 horizontal_alignment = 1
 
 [node name="TestBox" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 85.0
-offset_top = 405.0
-offset_right = 631.0
-offset_bottom = 927.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -273.0
+offset_top = -261.0
+offset_right = 273.0
+offset_bottom = 261.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/separation = -25
 
 [node name="MenuButton" type="Button" parent="."]
-layout_mode = 0
-offset_top = 1161.0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -120.0
 offset_right = 120.0
-offset_bottom = 1281.0
+grow_vertical = 0
 theme = ExtResource("3_a725e")
 theme_override_font_sizes/font_size = 30
 text = "Menu"
 
 [node name="BackButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 598.0
-offset_top = 1162.0
-offset_right = 718.0
-offset_bottom = 1282.0
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -120.0
+grow_horizontal = 0
+grow_vertical = 0
 theme = ExtResource("2_fsdh4")
 theme_override_font_sizes/font_size = 30
 text = "Retry

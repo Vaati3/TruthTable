@@ -13,22 +13,33 @@ script = ExtResource("1_22li3")
 
 [node name="description" type="Label" parent="."]
 visible = false
-layout_mode = 0
-offset_left = 2.0
-offset_top = 70.0
-offset_right = 722.0
-offset_bottom = 154.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -358.0
+offset_top = 69.0
+offset_right = 362.0
+offset_bottom = 153.0
+grow_horizontal = 2
 theme_override_font_sizes/font_size = 22
 text = "You can see this level description by tapping the button above"
 horizontal_alignment = 1
 
 [node name="outputnode" type="Label" parent="."]
 visible = false
-layout_mode = 0
-offset_left = -5.0
-offset_top = 643.0
-offset_right = 715.0
-offset_bottom = 745.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -364.0
+offset_top = 3.0
+offset_right = 356.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(1.0019, 1)
 theme_override_font_sizes/font_size = 22
 text = "This is the output node connect it to the input node 
@@ -37,11 +48,18 @@ The goal is to reproduce the logic gate in the level description"
 horizontal_alignment = 1
 
 [node name="inputnode" type="Label" parent="."]
-layout_mode = 0
-offset_left = -3.0
-offset_top = 428.0
-offset_right = 717.0
-offset_bottom = 530.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -362.0
+offset_top = -210.0
+offset_right = 358.0
+offset_bottom = -108.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 22
 text = "This is the input node connect it to the input node 
 You can toggle the state of the pins by clicking the buttons
@@ -50,11 +68,18 @@ horizontal_alignment = 1
 
 [node name="morenodes" type="Label" parent="."]
 visible = false
-layout_mode = 0
-offset_left = -2.0
-offset_top = 1018.0
-offset_right = 718.0
-offset_bottom = 1154.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -361.0
+offset_top = -262.0
+offset_right = 359.0
+offset_bottom = -126.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_font_sizes/font_size = 22
 text = "Add nodes by clicking the button in the middle 
 and select the node you need

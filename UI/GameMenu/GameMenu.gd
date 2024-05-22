@@ -1,4 +1,4 @@
-extends ColorRect
+extends Control
 class_name GameMenu
 
 var inputNode : InputNode = null
@@ -6,8 +6,6 @@ var outputNode : OutputNode = null
 var levelData
 
 var nodeList : Array[BaseNode] = []
-var isSliderOut : bool = false
-var sliderMoving : bool = false
 var sliderSpeed : int = 7
 
 func clearGame():
@@ -51,14 +49,13 @@ func startLevel(data, showTutorial):
 func _ready():
 	inputNode = preload("res://Nodes/IO/InputNode.tscn").instantiate()
 	outputNode = preload("res://Nodes/IO/OutputNode.tscn").instantiate()
-	inputNode.z_index = -100
-	outputNode.z_index = -100
+	#inputNode.z_index = -100
+	#outputNode.z_index = -100
 	
-	add_child(inputNode)
-	add_child(outputNode)
+	$Nodes.add_child(inputNode)
+	$Nodes.add_child(outputNode)
 	inputNode.position = Vector2(250, 250)
 	outputNode.position = Vector2(250, 750)
-	
 
 func moveScreen(relative):
 	inputNode.position += relative
@@ -68,8 +65,8 @@ func moveScreen(relative):
 		node.position += relative
 
 func addNode(node : BaseNode):
-	add_child(node)
-	node.z_index = -100
+	$Nodes.add_child(node)
+	#node.z_index = -100
 	nodeList.append(node)
 	
 	node.position = Vector2(300, 400)
@@ -90,7 +87,7 @@ func _on_back_button_pressed():
 	$Audio.play(0.24)
 	toMainMenu()
 
-func _on_button_pressed():
+func _on_validate_button_pressed():
 	$Audio.play(0.24)
 	toggleVisible(false)
 	$VerifyPanel.openAndRunTest()
@@ -108,6 +105,4 @@ func toMainMenu():
 		visible = false
 		parent.showMainMenu()
 	
-	sliderMoving = false
-	isSliderOut = false
 	$NodePanel.reset()

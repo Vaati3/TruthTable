@@ -115,7 +115,7 @@ func _on_rich_text_label_gui_input(event):
 		updateDrag(event)
 
 func _on_button_pressed():
-	var parent = get_parent()
+	var parent = get_parent().get_parent()
 	if parent is GameMenu:
 		for input in inputs:
 			input.reset()
@@ -124,6 +124,3 @@ func _on_button_pressed():
 				link.reset()
 		parent.removeNode(self)
 		queue_free()
-
-
-
